@@ -1,0 +1,564 @@
+{
+  "schema_version": "1.0",
+  "description": "Supplementary eval cases for situations the primary dataset does not reach: section spread vs a named course, light/heavy, party size, abusive language, out-of-scope requests, and requirements the taxonomy cannot express. Same shape as eval_dataset.json, so the same scorer runs over it. Extension fields (weight, party_size, request_kind) are scored only where declared.",
+  "menu_reference": "menu_database_200items.json",
+  "queries": [
+    {
+      "id": "S001",
+      "category": "sections",
+      "query": "give me spicy food",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "spicy": "high"
+        },
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "exact",
+      "notes": "No course named, so the answer must span sections - spicy exists in starters, soups, mains and drinks. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "S002",
+      "category": "sections",
+      "query": "show me a spicy main course",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": "main",
+        "taste_preferences": {
+          "spicy": "high"
+        },
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "exact",
+      "notes": "Course named, so one section only. Same taste filter as S001; only the spread differs. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "S003",
+      "category": "sections",
+      "query": "anything spicy in the starters?",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": "starter",
+        "taste_preferences": {
+          "spicy": "high"
+        },
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "exact",
+      "notes": "\"in the starters\" pins the course even though it is phrased as a location. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "S004",
+      "category": "sections",
+      "query": "show me everything creamy",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "sweet_creamy": true
+        },
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "exact",
+      "notes": "\"everything\" is not a licence to dump the menu - it still returns a sectioned shortlist."
+    },
+    {
+      "id": "W001",
+      "category": "weight",
+      "query": "something light",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "weight": "light"
+      },
+      "expected_match_type": "exact",
+      "notes": "With no course named, light means the lighter courses too - soups, salads, drinks, starters."
+    },
+    {
+      "id": "W002",
+      "category": "weight",
+      "query": "a light main course",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": "main",
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "weight": "light"
+      },
+      "expected_match_type": "exact",
+      "notes": "A named course makes light relative to that course - the lighter mains, not nothing at all."
+    },
+    {
+      "id": "W003",
+      "category": "weight",
+      "query": "something heavy and filling",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "weight": "heavy"
+      },
+      "expected_match_type": "exact",
+      "notes": "\"filling\" is the same signal as \"heavy\"; it must not become a taste."
+    },
+    {
+      "id": "W004",
+      "category": "weight",
+      "query": "nothing too heavy please",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "weight": "light"
+      },
+      "expected_match_type": "exact",
+      "notes": "Negated heavy is light. The trap is emitting weight heavy from the word \"heavy\"."
+    },
+    {
+      "id": "W005",
+      "category": "weight",
+      "query": "a light vegetarian starter",
+      "expected_filter": {
+        "dietary_include": [
+          "veg"
+        ],
+        "dietary_exclude": [],
+        "course": "starter",
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "weight": "light"
+      },
+      "expected_match_type": "exact",
+      "notes": "Weight, course and diet at once."
+    },
+    {
+      "id": "P001",
+      "category": "party_size",
+      "query": "something for 2 people",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "party_size": 2
+      },
+      "expected_match_type": "fallback_default",
+      "notes": "Party size changes how much is shown, never what is eligible. No other constraint, so this is a default recommendation."
+    },
+    {
+      "id": "P002",
+      "category": "party_size",
+      "query": "there are 4 of us, what do you recommend?",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": "bestseller",
+        "max_price_paise": null,
+        "party_size": 4
+      },
+      "expected_match_type": "exact",
+      "notes": "\"what do you recommend\" is the bestseller signal; the party size rides alongside it."
+    },
+    {
+      "id": "P003",
+      "category": "party_size",
+      "query": "a main course for the two of us",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": "main",
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "party_size": 2
+      },
+      "expected_match_type": "exact",
+      "notes": "\"the two of us\" is a party size written in words."
+    },
+    {
+      "id": "P004",
+      "category": "party_size",
+      "query": "dinner for 6, nothing too spicy",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "spicy": "low"
+        },
+        "sort_by": null,
+        "max_price_paise": null,
+        "party_size": 6
+      },
+      "expected_match_type": "exact",
+      "notes": "A larger party widens the shortlist and the per-section count; the spice rule is unchanged. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "P005",
+      "category": "party_size",
+      "query": "just for me, something spicy",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "spicy": "high"
+        },
+        "sort_by": null,
+        "max_price_paise": null,
+        "party_size": 1
+      },
+      "expected_match_type": "exact",
+      "notes": "\"just for me\" is a party of one, not an absent party size. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "A001",
+      "category": "abusive",
+      "query": "this food is absolute shit",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "ABUSIVE"
+      },
+      "expected_match_type": "abusive",
+      "notes": "Caught by the deterministic screen before any model call, so no prompt of theirs is ever sent."
+    },
+    {
+      "id": "A002",
+      "category": "abusive",
+      "query": "you bastards overcharged me last time",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "ABUSIVE"
+      },
+      "expected_match_type": "abusive",
+      "notes": "The reply redirects to the menu rather than lecturing or arguing about the bill."
+    },
+    {
+      "id": "A003",
+      "category": "abusive",
+      "query": "sh1t service, chutiya waiter",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "ABUSIVE"
+      },
+      "expected_match_type": "abusive",
+      "notes": "Digit substitution and a Hindi expletive; both are normalised before matching."
+    },
+    {
+      "id": "O001",
+      "category": "off_topic",
+      "query": "what's the weather in Bengaluru tomorrow?",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "OFF_TOPIC"
+      },
+      "expected_match_type": "off_topic",
+      "notes": "Polite, in scope for a general assistant, out of scope here."
+    },
+    {
+      "id": "O002",
+      "category": "off_topic",
+      "query": "can you book me a table for 8pm tonight",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "OFF_TOPIC"
+      },
+      "expected_match_type": "off_topic",
+      "notes": "Booking is the reservation system's job, not the menu concierge's. The hardest case here: it is about the restaurant."
+    },
+    {
+      "id": "O003",
+      "category": "off_topic",
+      "query": "write me a python script that sorts a list",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "OFF_TOPIC"
+      },
+      "expected_match_type": "off_topic",
+      "notes": "A general-assistant request aimed at a menu box."
+    },
+    {
+      "id": "O004",
+      "category": "off_topic",
+      "query": "my stomach has been hurting, what should I take for it?",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "OFF_TOPIC"
+      },
+      "expected_match_type": "off_topic",
+      "notes": "Medical advice. Adjacent to food, and still not something this surface may answer."
+    },
+    {
+      "id": "O005",
+      "category": "off_topic",
+      "query": "what time do you close?",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null,
+        "request_kind": "OFF_TOPIC"
+      },
+      "expected_match_type": "off_topic",
+      "notes": "Opening hours belong to the outlet record, not the menu. The concierge should not guess them."
+    },
+    {
+      "id": "C001",
+      "category": "compound",
+      "query": "light vegan starter under 200",
+      "expected_filter": {
+        "dietary_include": [
+          "vegan"
+        ],
+        "dietary_exclude": [],
+        "course": "starter",
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": 20000,
+        "weight": "light"
+      },
+      "expected_match_type": "relaxed",
+      "notes": "Four constraints at once, one of them an extension field. This menu has no vegan starters at all, so the exact filter matches nothing and the ladder relaxes down to the nearest real dishes - with vegan still enforced."
+    },
+    {
+      "id": "C002",
+      "category": "compound",
+      "query": "spicy non-veg main for 3, nothing over 400",
+      "expected_filter": {
+        "dietary_include": [
+          "non_veg"
+        ],
+        "dietary_exclude": [],
+        "course": "main",
+        "taste_preferences": {
+          "spicy": "high"
+        },
+        "sort_by": null,
+        "max_price_paise": 40000,
+        "party_size": 3
+      },
+      "expected_match_type": "exact",
+      "notes": "Party size must not leak into the price or the course. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "C003",
+      "category": "compound",
+      "query": "cheapest light soup you have",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": "soup",
+        "taste_preferences": {},
+        "sort_by": "price_asc",
+        "max_price_paise": null,
+        "weight": "light"
+      },
+      "expected_match_type": "exact",
+      "notes": "An explicit ordering plus a course means a ranked single-section answer, not a spread."
+    },
+    {
+      "id": "U001",
+      "category": "unexpressed",
+      "query": "something with paneer in it",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "clarification",
+      "notes": "An ingredient is not in the taxonomy. It must go to unexpressed and be admitted, never approximated with veg."
+    },
+    {
+      "id": "U002",
+      "category": "unexpressed",
+      "query": "a cold drink, no onion",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": "beverage",
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "clarification",
+      "notes": "The course is expressible; \"cold\" and \"no onion\" are not. The answer covers the first and admits the rest."
+    },
+    {
+      "id": "V001",
+      "category": "dietary",
+      "query": "show me something spicy in veg",
+      "expected_filter": {
+        "dietary_include": [
+          "veg"
+        ],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "spicy": "high"
+        },
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "exact",
+      "notes": "\"in veg\" is the usual phrasing on an Indian menu. A parser that only knows \"vegetarian\" drops the constraint and leaks non-veg dishes into the answer. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "V002",
+      "category": "dietary",
+      "query": "any non-veg starters",
+      "expected_filter": {
+        "dietary_include": [
+          "non_veg"
+        ],
+        "dietary_exclude": [],
+        "course": "starter",
+        "taste_preferences": {},
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "exact",
+      "notes": "The \"non\" must be read before the \"veg\": the trap is matching veg on the tail of non-veg."
+    },
+    {
+      "id": "V003",
+      "category": "dietary",
+      "query": "pure veg, nothing too spicy",
+      "expected_filter": {
+        "dietary_include": [
+          "veg"
+        ],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "spicy": "low"
+        },
+        "sort_by": null,
+        "max_price_paise": null
+      },
+      "expected_match_type": "exact",
+      "notes": "\"pure veg\" is veg; the negated spice must not become a positive one. Spice is a basic taste with a level, not a yes/no note."
+    },
+    {
+      "id": "L001",
+      "category": "multilingual",
+      "query": "कुछ मीठा चाहिए",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "sweet": "high"
+        },
+        "sort_by": null,
+        "max_price_paise": null,
+        "language": "hi"
+      },
+      "expected_match_type": "exact",
+      "notes": "Devanagari is always Hindi; the filter values stay English taxonomy strings."
+    },
+    {
+      "id": "L002",
+      "category": "multilingual",
+      "query": "swalpa khaara idhe beku",
+      "expected_filter": {
+        "dietary_include": [],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "spicy": "low"
+        },
+        "sort_by": null,
+        "max_price_paise": null,
+        "language": "kn"
+      },
+      "expected_match_type": "exact",
+      "notes": "Kanglish: Kannada in Latin letters. \"swalpa\" is a little, so spicy low."
+    },
+    {
+      "id": "L003",
+      "category": "multilingual",
+      "query": "veg biryani chahiye, thoda teekha",
+      "expected_filter": {
+        "dietary_include": [
+          "veg"
+        ],
+        "dietary_exclude": [],
+        "course": null,
+        "taste_preferences": {
+          "spicy": "low"
+        },
+        "sort_by": null,
+        "max_price_paise": null,
+        "language": "hi"
+      },
+      "expected_match_type": "exact",
+      "notes": "Code-mixed Hinglish. The food words are English, the sentence is Hindi, so language is hi."
+    }
+  ]
+}

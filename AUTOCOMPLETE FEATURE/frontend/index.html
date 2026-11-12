@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Search</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #d9d9d9;
+    --accent: #1a1a1a;
+    --hover: #f4f4f4;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 14vh;
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+  }
+
+  .search-wrap {
+    width: 100%;
+    max-width: 560px;
+    padding: 0 20px;
+  }
+
+  .search-box {
+    position: relative;
+  }
+
+  input#search-input {
+    width: 100%;
+    font-size: 18px;
+    padding: 14px 44px 14px 18px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  input#search-input:focus {
+    border-color: #9c9c9c;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  .status-dot {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.15s ease;
+  }
+
+  .status-dot.active {
+    background: #999;
+    animation: pulse 0.9s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  ul#suggestions {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    display: none;
+    background: #fff;
+  }
+
+  ul#suggestions.visible {
+    display: block;
+  }
+
+  li.suggestion {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li.suggestion:last-child {
+    border-bottom: none;
+  }
+
+  li.suggestion:hover,
+  li.suggestion.highlighted {
+    background: var(--hover);
+  }
+
+  li.suggestion img {
+    width: 32px;
+    height: 44px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #eee;
+    border-radius: 2px;
+  }
+
+  .s-text {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .s-title {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .s-title mark {
+    background: transparent;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .s-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .s-price {
+    font-size: 13px;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .empty-state, .hint {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <input
+      id="search-input"
+      type="text"
+      placeholder="Search books..."
+      autocomplete="off"
+      spellcheck="false"
+    />
+    <span id="status-dot" class="status-dot"></span>
+  </div>
+  <ul id="suggestions"></ul>
+  <div id="hint" class="hint">Start typing.</div>
+</div>
+
+<script>
+  const API_BASE = ""; // same-origin: backend serves this file, so "" resolves relative to it.
+  // If you host the frontend separately from the backend, set this to e.g. "http://localhost:8000"
+
+  const input = document.getElementById("search-input");
+  const list = document.getElementById("suggestions");
+  const hint = document.getElementById("hint");
+  const statusDot = document.getElementById("status-dot");
+
+  const DEBOUNCE_MS = 150; // small delay so we don't fire a request on every single keystroke burst,
+                            // while still feeling instantaneous to the user
+  let debounceTimer = null;
+  let activeController = null; // cancels a stale in-flight request when a newer one starts
+  let highlightedIndex = -1;
+  let currentResults = [];
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[c]));
+  }
+
+  // bolds the matched portion of the title for the current query
+  function highlightMatch(title, query) {
+    const escapedTitle = escapeHtml(title);
+    const idx = title.toLowerCase().indexOf(query.toLowerCase());
+    if (idx === -1 || !query) return escapedTitle;
+    const before = escapeHtml(title.slice(0, idx));
+    const match = escapeHtml(title.slice(idx, idx + query.length));
+    const after = escapeHtml(title.slice(idx + query.length));
+    return `${before}<mark>${match}</mark>${after}`;
+  }
+
+  function renderResults(results, query) {
+    currentResults = results;
+    highlightedIndex = -1;
+
+    if (!results.length) {
+      list.classList.remove("visible");
+      hint.textContent = query ? "No matching books found." : "Start typing";
+      return;
+    }
+
+    hint.textContent = "";
+    list.innerHTML = results.map((item, i) => `
+      <li class="suggestion" data-index="${i}" data-url="${escapeHtml(item.url || "#")}">
+        <img src="${escapeHtml(item.image_url || "")}" alt="" loading="lazy"
+             onerror="this.style.visibility='hidden'" />
+        <div class="s-text">
+          <div class="s-title">${highlightMatch(item.title, query)}</div>
+          <div class="s-meta">${escapeHtml(item.author || "")}${item.rating ? " · ★ " + item.rating : ""}</div>
+        </div>
+        <div class="s-price">${item.price != null ? "$" + item.price.toFixed(2) : ""}</div>
+      </li>
+    `).join("");
+
+    list.classList.add("visible");
+  }
+
+  async function fetchSuggestions(query) {
+    if (activeController) activeController.abort(); // cancel any in-flight older request
+    activeController = new AbortController();
+
+    statusDot.classList.add("active");
+    try {
+      const res = await fetch(`${API_BASE}/suggest?q=${encodeURIComponent(query)}&limit=8`, {
+        signal: activeController.signal,
+      });
+      const data = await res.json();
+      // guard against out-of-order responses: only render if this is still the current input value
+      if (input.value.trim() === query) {
+        renderResults(data.results, query);
+      }
+    } catch (err) {
+      if (err.name !== "AbortError") {
+        hint.textContent = "Couldn't reach the suggestion service.";
+      }
+    } finally {
+      statusDot.classList.remove("active");
+    }
+  }
+
+  input.addEventListener("input", () => {
+    const query = input.value.trim();
+    clearTimeout(debounceTimer);
+
+    if (!query) {
+      list.classList.remove("visible");
+      hint.textContent = "Start typing";
+      return;
+    }
+
+    debounceTimer = setTimeout(() => fetchSuggestions(query), DEBOUNCE_MS);
+  });
+
+  // keyboard navigation: Up/Down to move, Enter to open, Esc to close
+  input.addEventListener("keydown", (e) => {
+    if (!currentResults.length) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      highlightedIndex = Math.min(highlightedIndex + 1, currentResults.length - 1);
+      updateHighlight();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      highlightedIndex = Math.max(highlightedIndex - 1, -1);
+      updateHighlight();
+    } else if (e.key === "Enter" && highlightedIndex >= 0) {
+      const item = currentResults[highlightedIndex];
+      if (item.url) window.open(item.url, "_blank");
+    } else if (e.key === "Escape") {
+      list.classList.remove("visible");
+    }
+  });
+
+  function updateHighlight() {
+    [...list.children].forEach((li, i) => {
+      li.classList.toggle("highlighted", i === highlightedIndex);
+    });
+  }
+
+  list.addEventListener("click", (e) => {
+    const li = e.target.closest("li.suggestion");
+    if (li && li.dataset.url) window.open(li.dataset.url, "_blank");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search-wrap")) list.classList.remove("visible");
+  });
+</script>
+
+</body>
+</html>

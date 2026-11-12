@@ -1,0 +1,29 @@
+{
+  "name": "eatlabs-site-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Grounded question-answering about EatLabs itself, over voice or text, on the same Qwen3-30B-A3B server as the voice agent.",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "web": "node serve.ts",
+    "watch": "python tools/watch_site.py",
+    "scrape": "python tools/scrape_eatlabs.py ./source-raw",
+    "crawl": "python tools/crawl_eatlabs.py --update",
+    "build-kb": "python tools/build_kb.py ./knowledge-base ./kb.jsonl",
+    "audit": "python tools/audit_kb.py",
+    "test": "node tests/retrieval_tests.ts",
+    "typecheck": "tsc --noEmit",
+    "embed-kb": "node tools/embed_kb.ts",
+    "eval": "node tools/eval_questions.ts",
+    "eval-edges": "node --env-file=.env tools/eval_edges.ts",
+    "embed-server": "python services/embed/server.py",
+    "web-env": "node --env-file=.env serve.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.10.0"
+  }
+}

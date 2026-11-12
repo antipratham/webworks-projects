@@ -1,0 +1,171 @@
+{
+  "pages": {
+    "https://eatlabs.io": {
+      "sha256": "b82957a505d3bfcd753341fd83c7621531da900e3c567d4ddaad2901dc8e553a",
+      "chars": 13780,
+      "file": "home.md"
+    },
+    "https://eatlabs.io/guide/glossary": {
+      "sha256": "83fb3be348c7a16aa662adfc61caafa620241f85e7314823595227fa112ffce8",
+      "chars": 3303,
+      "file": "guide-glossary.md"
+    },
+    "https://eatlabs.io/guide/troubleshooting": {
+      "sha256": "c65b20bdcf769e7a5f3d5180fa2526a5b71c9cc0b0d6d8527a05f79aeb356c54",
+      "chars": 2710,
+      "file": "guide-troubleshooting.md"
+    },
+    "https://eatlabs.io/guide/plans": {
+      "sha256": "ec179f69085a0169728062e2b9da603f9ef3e3a913c803c82382dea9421cbb1e",
+      "chars": 3498,
+      "file": "guide-plans.md"
+    },
+    "https://eatlabs.io/guide/guest-experience": {
+      "sha256": "9e55e6e91ff79145278e63e6f4159fcd8fdd98c258b2db1e8514df7128c303af",
+      "chars": 3590,
+      "file": "guide-guest-experience.md"
+    },
+    "https://eatlabs.io/guide/team-and-outlets": {
+      "sha256": "4b2ead6597e121db7490a1e0d2c1632360b2d1c28ba44874b90d3a54cb570972",
+      "chars": 2882,
+      "file": "guide-team-and-outlets.md"
+    },
+    "https://eatlabs.io/guide/insights": {
+      "sha256": "7bca8dde498b5276f3848372b382cf608277a1ecd7a963ecb8eaff43dc7785c4",
+      "chars": 2264,
+      "file": "guide-insights.md"
+    },
+    "https://eatlabs.io/guide/food-menu": {
+      "sha256": "db7c0f4671233b95d561fe47c4b5f61cd365177be61d7ba1fb7ef2f6ac4b3c49",
+      "chars": 2726,
+      "file": "guide-food-menu.md"
+    },
+    "https://eatlabs.io/guide/reviews": {
+      "sha256": "5a429b148307a200803846f770b83a457ee22ec7608585c7422baa28f791ec55",
+      "chars": 2571,
+      "file": "guide-reviews.md"
+    },
+    "https://eatlabs.io/guide/events": {
+      "sha256": "e68221fabe0762665c54ab23cf7e2babded4b271998350de7fef3730c8a6fc65",
+      "chars": 2439,
+      "file": "guide-events.md"
+    },
+    "https://eatlabs.io/guide/loyalty": {
+      "sha256": "df1781acc9611f2abec42a227263b847b180b3f00458c3a18da2036a7b95358e",
+      "chars": 2502,
+      "file": "guide-loyalty.md"
+    },
+    "https://eatlabs.io/guide/marketing": {
+      "sha256": "0ff34a61dae0de576a877767cf6004721ab0c6a230372ff96b4d591c252c4088",
+      "chars": 2736,
+      "file": "guide-marketing.md"
+    },
+    "https://eatlabs.io/guide/guest-crm": {
+      "sha256": "1ad1398804b3fac8c93e95321043b6429597375bae8952f886a8b1f20a65cf2f",
+      "chars": 2587,
+      "file": "guide-guest-crm.md"
+    },
+    "https://eatlabs.io/guide/ai-calls": {
+      "sha256": "7f720f239547652564f18f48e650fd72744ecf600ba95f597db6ffcb1062b2ff",
+      "chars": 3106,
+      "file": "guide-ai-calls.md"
+    },
+    "https://eatlabs.io/guide/reservations": {
+      "sha256": "47ca2609cace682f8060cd9b21d92cb2793b2232e276163167bbf24d273bdec8",
+      "chars": 3424,
+      "file": "guide-reservations.md"
+    },
+    "https://eatlabs.io/guide/dashboard": {
+      "sha256": "59df8c4d063802d155b3a6d0da278a72509c2b1735344f2d6f5874137b691040",
+      "chars": 3018,
+      "file": "guide-dashboard.md"
+    },
+    "https://eatlabs.io/guide/start-marketing": {
+      "sha256": "d9874d6c19eb3e744d9cd277c0fa6cc93e3bfd6b482ed757cbd661e031fbed87",
+      "chars": 3318,
+      "file": "guide-start-marketing.md"
+    },
+    "https://eatlabs.io/guide/take-bookings": {
+      "sha256": "dc4c6d362998f5a9ef30977f4606b03766837a995676d860c1602b7cd46e0e1d",
+      "chars": 5085,
+      "file": "guide-take-bookings.md"
+    },
+    "https://eatlabs.io/guide/open-your-outlet": {
+      "sha256": "78340b620c48015ab538a6cb9d56f186506bb84daeb4609b2e56f8b6959e7652",
+      "chars": 3025,
+      "file": "guide-open-your-outlet.md"
+    },
+    "https://eatlabs.io/guide/requirements": {
+      "sha256": "dc0630b99c7a9989d9dbf6f2ae107933156ce69dbc64a37a6e55d8ace78a0de5",
+      "chars": 3826,
+      "file": "guide-requirements.md"
+    },
+    "https://eatlabs.io/guide/sign-in": {
+      "sha256": "ac07819917c6241b349df91628c97e7a83f189ff75bcaa522c43680651e6ae18",
+      "chars": 3410,
+      "file": "guide-sign-in.md"
+    },
+    "https://eatlabs.io/guide/sign-up": {
+      "sha256": "a91c1fa20c5f13476425c33d925ffc59f15d6949e9951c79ccf9169ff293f51f",
+      "chars": 4074,
+      "file": "guide-sign-up.md"
+    },
+    "https://eatlabs.io/guide": {
+      "sha256": "acbba6e4cdf26c43846bcd299751d51e1fd0e0e7de54f7e823e3e524f7788622",
+      "chars": 4777,
+      "file": "guide.md"
+    },
+    "https://eatlabs.io/legal/data-deletion": {
+      "sha256": "85b150076936ed952df7e8661f6321bc3f04f48a9fce51f9f8b558abb30f593c",
+      "chars": 9460,
+      "file": "legal-data-deletion.md"
+    },
+    "https://eatlabs.io/legal/guest-terms": {
+      "sha256": "3066f768e967226323497d53893377c50bfc660250569410aa972707e1f4bf31",
+      "chars": 9918,
+      "file": "legal-guest-terms.md"
+    },
+    "https://eatlabs.io/legal/guest-privacy": {
+      "sha256": "bf330fbb995fef42806ce9a530eeef2816427a6ac5b1eced7656200d29faccf2",
+      "chars": 11132,
+      "file": "legal-guest-privacy.md"
+    },
+    "https://eatlabs.io/legal/privacy": {
+      "sha256": "aadbecb922d613ce87f181f6139e96ec3f9c23ea99523dbcbc6fa3ac942133c5",
+      "chars": 16356,
+      "file": "legal-privacy.md"
+    },
+    "https://eatlabs.io/legal/terms": {
+      "sha256": "9efd9d7e2df626b911e542292558c7e25a15bccb3523cb13c38089358821af36",
+      "chars": 25777,
+      "file": "legal-terms.md"
+    },
+    "https://eatlabs.io/contact": {
+      "sha256": "1e2a00e6c5f925993b6a0760fe2427241bc8f290b1b11b5dbe8f31b843bab190",
+      "chars": 1777,
+      "file": "contact.md"
+    },
+    "https://eatlabs.io/faq": {
+      "sha256": "a8dc33bc105385f383a134b805abb3b7106e72df1c3200f84c91f48b811aa8b1",
+      "chars": 1998,
+      "file": "faq.md"
+    },
+    "https://eatlabs.io/security": {
+      "sha256": "480725ecc9804d008006fc866803389c24e3edf6ed73db41d6c1585143f2d050",
+      "chars": 2510,
+      "file": "security.md"
+    },
+    "https://eatlabs.io/who-its-for": {
+      "sha256": "d1bb1be89432a58445d83c5c652bf4fa1acbdcc3edb2115687da6a39e878cbfb",
+      "chars": 3126,
+      "file": "who-its-for.md"
+    },
+    "https://eatlabs.io/features": {
+      "sha256": "27c004bcee440bef4fd9bf4b924c8c481f65ab2262d0562301334b6f2020a3aa",
+      "chars": 9710,
+      "file": "features.md"
+    }
+  },
+  "last_run": "2026-11-02T11:57:57+0530",
+  "site": "https://eatlabs.io"
+}

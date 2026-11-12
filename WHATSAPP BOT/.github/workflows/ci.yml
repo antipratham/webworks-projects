@@ -1,0 +1,124 @@
+name: whatsapp-service CI
+
+# Scoped to this service's paths so it does not run on every change to the
+# voice agent living in the same repository.
+on:
+  push:
+    branches: ['**']
+    paths: ['whatsapp-service/**', '.github/workflows/ci.yml']
+  pull_request:
+    paths: ['whatsapp-service/**', '.github/workflows/ci.yml']
+
+defaults:
+  run:
+    working-directory: whatsapp-service
+
+concurrency:
+  group: wa-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Fast gate: types and the pure unit tests. No services, so it fails in well
+  # under a minute on the mistakes that are most common.
+  unit:
+    name: types and unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: whatsapp-service/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+  # The tests above never touch a database, which means a broken migration or a
+  # typo in SQL passes them. This job runs the real schema against real Postgres.
+  migrations:
+    name: migrations and schema
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: restoos
+          POSTGRES_PASSWORD: restoos
+          POSTGRES_DB: restoos_wa
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U restoos"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgres://restoos:restoos@localhost:5432/restoos_wa
+      REDIS_URL: redis://localhost:6379
+      WHATSAPP_WEBHOOK_VERIFY_TOKEN: ci-verify-token
+      META_APP_SECRET: ci-app-secret
+      RESTAURANT_OS_BASE_URL: http://localhost:4000
+      RESTAURANT_OS_API_KEY: ci-restaurant-os-key
+      BOOTSTRAP_ADMIN_KEY: ci-bootstrap-key-at-least-24-chars
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: whatsapp-service/package-lock.json
+      - run: npm ci
+
+      - name: Generate an encryption key
+        run: echo "CREDENTIALS_ENC_KEY=$(node -e "console.log(require('crypto').randomBytes(32).toString('base64'))")" >> "$GITHUB_ENV"
+
+      - name: Apply migrations
+        run: npm run migrate
+
+      - name: Migrations are idempotent
+        run: npm run migrate
+
+      - name: Service boots against the real schema
+        run: |
+          npm run dev > boot.log 2>&1 &
+          for i in $(seq 1 45); do
+            if curl -sf http://127.0.0.1:3000/readyz > /dev/null; then
+              echo "ready"; break
+            fi
+            sleep 1
+          done
+          curl -sf http://127.0.0.1:3000/readyz || { echo "did not become ready"; cat boot.log; exit 1; }
+          curl -sf http://127.0.0.1:3000/metrics | head -5 || { echo "metrics endpoint failed"; exit 1; }
+
+      - name: Unauthenticated intake is rejected
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST http://127.0.0.1:3000/v1/notifications \
+            -H 'content-type: application/json' -H 'idempotency-key: ci-test-key-0001' -d '{}')
+          [ "$code" = "401" ] || { echo "expected 401, got $code"; exit 1; }
+
+      - name: Show boot log on failure
+        if: failure()
+        run: cat boot.log || true
+
+  # A secret in a public repository is the failure that cannot be undone by a
+  # revert, so it gets its own gate.
+  secrets:
+    name: no committed secrets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject a committed .env
+        run: |
+          if [ -f .env ]; then echo "A .env file is committed."; exit 1; fi
+      - name: Reject live-looking credentials
+        run: |
+          if grep -rIEn 'EAA[A-Za-z0-9]{40,}|gho_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{30,}' \
+               --exclude-dir=node_modules . ; then
+            echo "Found something that looks like a live token."
+            exit 1
+          fi
+          echo "clean"

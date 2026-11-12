@@ -1,0 +1,83 @@
+{
+  "company_name": "WebWorks Co.",
+  "tagline": "Your all-in-one digital powerhouse — tech, marketing, AI, cloud, and automation under one roof",
+  "website": "https://webworksco.in/",
+  "service_categories": [
+    {
+      "category": "Development",
+      "services": [
+        "Custom Web Development",
+        "Mobile App Development",
+        "API & Backend Solutions",
+        "Scalable Architecture"
+      ],
+      "fixes_weaknesses_like": [
+        "outdated/slow website",
+        "no mobile app",
+        "dated tech stack",
+        "poor site performance",
+        "site not built for scale",
+        "JS/plugin-heavy legacy WordPress sites",
+        "broken or missing integrations",
+        "unappealing application and/or website"
+      ]
+    },
+    {
+      "category": "Marketing & Content",
+      "services": [
+        "UGC Video Campaigns",
+        "Meta Ads & Performance Marketing",
+        "Turbo Boosting",
+        "Brand Content Creation & Optimization",
+        "Google Ads & SEO Optimization"
+      ],
+      "fixes_weaknesses_like": [
+        "weak or absent social media presence",
+        "no video content",
+        "low search visibility/SEO gaps",
+        "generic/stale brand messaging",
+        "no paid acquisition strategy",
+        "low engagement on existing channels"
+      ]
+    },
+    {
+      "category": "Strategy & Consulting",
+      "services": [
+        "IT & Marketing Strategy Planning",
+        "Platform & Infrastructure Consultation",
+        "Campaign Analysis & Optimization",
+        "Tech Stack & Tooling Guidance",
+        "Brand Positioning & Digital Roadmaps"
+      ],
+      "fixes_weaknesses_like": [
+        "no clear digital roadmap",
+        "inconsistent brand positioning",
+        "inefficient or legacy tooling",
+        "no measurement/analytics on campaigns",
+        "disjointed marketing and tech decisions"
+      ]
+    },
+    {
+      "category": "Content Production Philosophy",
+      "services": [
+        "Product-educated creators",
+        "Hook-first video strategy",
+        "Native-style shooting only",
+        "High retention visuals"
+      ],
+      "fixes_weaknesses_like": [
+        "low-quality or overly polished/inauthentic video content",
+        "no short-form video presence",
+        "low content retention/watch time",
+        "content that doesn't reflect actual product understanding"
+      ]
+    }
+  ],
+  "credentials": [
+    "\"AI Startup of the Year\" — World AI Awards 2025",
+    "\"Emerging Startup of the Year 2026\" — Forbes India",
+    "50+ Fintech companies as clients",
+    "Money-back-with-interest guarantee if Digital Marketing services don't deliver in 3 months",
+    "Direct-to-team model — no middlemen or relay chains"
+  ]
+}

@@ -1,0 +1,113 @@
+{"q": "What is EatLabs?", "expect": "identity#what-eatlabs-is", "topic": "identity"}
+{"q": "tell me about eatlabs", "expect": "identity#what-eatlabs-is", "topic": "identity"}
+{"q": "Who runs EatLabs?", "expect": "identity#who-operates-eatlabs", "topic": "identity"}
+{"q": "How do I contact support?", "expect": "identity#how-to-reach-eatlabs", "topic": "identity"}
+{"q": "What are your support hours?", "expect": "identity#how-to-reach-eatlabs", "topic": "identity"}
+{"q": "Which email do I use for a privacy request?", "expect": "identity#specialist-email-addresses", "topic": "identity"}
+{"q": "How many restaurants use EatLabs?", "expect": "identity#scale-and-coverage-claims", "topic": "identity"}
+{"q": "What happens after I fill in the enquiry form?", "expect": "identity#what-happens-after-someone-enquires", "topic": "identity"}
+{"q": "How long is the demo?", "expect": "identity#what-happens-after-someone-enquires", "topic": "identity"}
+{"q": "What is the main idea behind the product?", "expect": "overview#the-core-idea", "topic": "overview"}
+{"q": "What modules do I get?", "expect": "overview#the-module-list", "topic": "overview"}
+{"q": "How many modules are there?", "expect": "overview#the-module-list", "topic": "overview"}
+{"q": "Where can bookings come from?", "expect": "overview#the-nine-booking-channels", "topic": "overview"}
+{"q": "Which languages are supported?", "expect": "overview#languages", "topic": "overview"}
+{"q": "Does it handle Hinglish?", "expect": "overview#languages", "topic": "overview"}
+{"q": "What does EatLabs not do?", "expect": "overview#out-of-scope-what-eatlabs-is-not", "topic": "overview"}
+{"q": "What happens when nobody answers the phone?", "expect": "ai-calls#what-the-ai-phone-host-does", "topic": "ai-calls"}
+{"q": "Does the AI answer calls when we are closed?", "expect": "ai-calls#what-the-ai-phone-host-does", "topic": "ai-calls"}
+{"q": "Can the AI pass a call to a human?", "expect": "ai-calls#warm-transfer-to-staff", "topic": "ai-calls"}
+{"q": "What happens to a call that is still missed?", "expect": "ai-calls#missed-call-recovery", "topic": "ai-calls"}
+{"q": "Where do I see today's calls?", "expect": "ai-calls#the-calls-screen", "topic": "ai-calls"}
+{"q": "Do you record calls?", "expect": "ai-calls#call-records-recording-and-transcripts", "topic": "ai-calls"}
+{"q": "How long do you keep call recordings?", "expect": "ai-calls#call-records-recording-and-transcripts", "topic": "ai-calls"}
+{"q": "Can the AI cancel someone else's booking?", "expect": "ai-calls#what-the-ai-host-is-allowed-to-do", "topic": "ai-calls"}
+{"q": "Can I turn the AI answering off?", "expect": "ai-calls#answering-modes-and-turning-ai-off", "topic": "ai-calls"}
+{"q": "Can I keep my existing phone number?", "expect": "ai-calls#phone-numbers", "topic": "ai-calls"}
+{"q": "Can two channels book the same table?", "expect": "reservations#one-availability-engine-no-double-booking", "topic": "reservations"}
+{"q": "How do you prevent double bookings?", "expect": "reservations#one-availability-engine-no-double-booking", "topic": "reservations"}
+{"q": "Is there a floor plan view?", "expect": "reservations#the-live-floor-plan", "topic": "reservations"}
+{"q": "Do you have a waitlist?", "expect": "reservations#waitlist-and-queue-management", "topic": "reservations"}
+{"q": "Do guests get a reminder before they come?", "expect": "reservations#automatic-guest-messages", "topic": "reservations"}
+{"q": "Can I take a deposit to stop no-shows?", "expect": "reservations#deposits-and-no-shows", "topic": "reservations"}
+{"q": "How do guests pay a deposit?", "expect": "reservations#deposits-and-no-shows", "topic": "reservations"}
+{"q": "Do you support multiple outlets?", "expect": "reservations#multi-outlet-reservations", "topic": "reservations"}
+{"q": "Can guests book over WhatsApp?", "expect": "whatsapp-crm#whatsapp-booking-bot", "topic": "whatsapp"}
+{"q": "Can my staff take over from the bot?", "expect": "whatsapp-crm#shared-team-inbox", "topic": "whatsapp"}
+{"q": "Can I use my own WhatsApp number?", "expect": "whatsapp-crm#your-own-whatsapp-number", "topic": "whatsapp"}
+{"q": "How do guests stop marketing messages?", "expect": "whatsapp-crm#consent-and-opt-out", "topic": "whatsapp"}
+{"q": "Stop sending me WhatsApp messages", "expect": "whatsapp-crm#consent-and-opt-out", "topic": "whatsapp"}
+{"q": "What is in a guest profile?", "expect": "whatsapp-crm#guest-crm", "topic": "whatsapp"}
+{"q": "How does the loyalty programme work?", "expect": "whatsapp-crm#loyalty-vouchers-and-offers", "topic": "whatsapp"}
+{"q": "Can points be used at another outlet?", "expect": "whatsapp-crm#loyalty-vouchers-and-offers", "topic": "whatsapp"}
+{"q": "Can I send a campaign to past guests?", "expect": "whatsapp-crm#whatsapp-campaigns", "topic": "whatsapp"}
+{"q": "Can I tell which ad actually filled tables?", "expect": "whatsapp-crm#attribution-and-tracking", "topic": "whatsapp"}
+{"q": "Do you have a QR menu?", "expect": "menu-reviews-events#ai-menu-and-qr-dining", "topic": "menu"}
+{"q": "Can a guest ask for something not spicy and under 400 rupees?", "expect": "menu-reviews-events#the-ai-food-concierge-and-allergens", "topic": "menu"}
+{"q": "How do you handle allergies?", "expect": "menu-reviews-events#the-ai-food-concierge-and-allergens", "topic": "menu"}
+{"q": "Do you reply to Google reviews?", "expect": "menu-reviews-events#reviews-and-feedback", "topic": "menu"}
+{"q": "How often do reviews sync?", "expect": "menu-reviews-events#reviews-and-feedback", "topic": "menu"}
+{"q": "Can I sell tickets for an event?", "expect": "menu-reviews-events#events-and-ticketing", "topic": "menu"}
+{"q": "I am already on Zomato, what does this add?", "expect": "menu-reviews-events#zomato-and-swiggy-data", "topic": "menu"}
+{"q": "What reports do I get?", "expect": "menu-reviews-events#insights", "topic": "menu"}
+{"q": "Does it show my Instagram ad performance?", "expect": "menu-reviews-events#business-suite", "topic": "menu"}
+{"q": "Is there a mobile app for staff?", "expect": "menu-reviews-events#multi-outlet-and-staff-app", "topic": "menu"}
+{"q": "Do you have an API?", "expect": "menu-reviews-events#public-api", "topic": "menu"}
+{"q": "How much does it cost?", "expect": "pricing#the-published-plans", "topic": "pricing"}
+{"q": "What is the pricing", "expect": "pricing#the-published-plans", "topic": "pricing"}
+{"q": "What are the plans?", "expect": "pricing#the-published-plans", "topic": "pricing"}
+{"q": "whats the price per month", "expect": "pricing#the-published-plans", "topic": "pricing"}
+{"q": "Is there a free trial?", "expect": "pricing#what-the-free-trial-includes", "topic": "pricing"}
+{"q": "How long is the free trial?", "expect": "pricing#what-the-free-trial-includes", "topic": "pricing"}
+{"q": "What is included in Growth?", "expect": "pricing#what-growth-includes", "topic": "pricing"}
+{"q": "What does Enterprise mean?", "expect": "pricing#what-enterprise-means", "topic": "pricing"}
+{"q": "What are credits?", "expect": "pricing#credits-the-usage-currency", "topic": "pricing"}
+{"q": "Do unused credits carry over?", "expect": "pricing#how-credits-expire", "topic": "pricing"}
+{"q": "What happens if I run out of credits?", "expect": "pricing#running-out-of-credits", "topic": "pricing"}
+{"q": "Can I buy more outlets with credits?", "expect": "pricing#limits-are-separate-from-credits", "topic": "pricing"}
+{"q": "Is GST included in the price?", "expect": "pricing#invoicing-and-payment-terms", "topic": "pricing"}
+{"q": "When do I have to pay the invoice?", "expect": "pricing#invoicing-and-payment-terms", "topic": "pricing"}
+{"q": "Can I cancel anytime?", "expect": "pricing#term-renewal-and-cancellation", "topic": "pricing"}
+{"q": "How much notice do I have to give to cancel?", "expect": "pricing#term-renewal-and-cancellation", "topic": "pricing"}
+{"q": "What happens to my data if I leave?", "expect": "pricing#what-happens-to-data-on-termination", "topic": "pricing"}
+{"q": "Can I export my data?", "expect": "pricing#what-happens-to-data-on-termination", "topic": "pricing"}
+{"q": "Where is my data stored?", "expect": "security#where-data-lives", "topic": "security"}
+{"q": "Is guest data kept in India?", "expect": "security#where-data-lives", "topic": "security"}
+{"q": "Does anything leave India?", "expect": "security#what-processing-happens-outside-india", "topic": "security"}
+{"q": "How is access controlled?", "expect": "security#the-security-measures", "topic": "security"}
+{"q": "Can another restaurant see my guests?", "expect": "security#tenant-isolation", "topic": "security"}
+{"q": "Can your staff look at my customer data?", "expect": "security#staff-access-to-customer-data", "topic": "security"}
+{"q": "Who is the data fiduciary?", "expect": "security#data-fiduciary-vs-data-processor", "topic": "security"}
+{"q": "Which sub-processors do you use?", "expect": "security#sub-processors", "topic": "security"}
+{"q": "Does EatLabs hold my money?", "expect": "security#payments-money-never-passes-through-eatlabs", "topic": "security"}
+{"q": "How do payments work?", "expect": "security#payments-money-never-passes-through-eatlabs", "topic": "security"}
+{"q": "How long do you keep booking data?", "expect": "security#retention-periods", "topic": "security"}
+{"q": "What do you do if there is a data breach?", "expect": "security#breach-notification", "topic": "security"}
+{"q": "What is your uptime guarantee?", "expect": "security#availability-and-support-commitments", "topic": "security"}
+{"q": "Can you share a DPIA?", "expect": "security#compliance-documents", "topic": "security"}
+{"q": "Which law governs the contract?", "expect": "security#governing-law", "topic": "security"}
+{"q": "What rights do I have under the DPDP Act?", "expect": "guest-rights#rights-a-person-has-under-the-dpdp-act", "topic": "guest-rights"}
+{"q": "How do I delete my data?", "expect": "guest-rights#how-to-request-deletion", "topic": "guest-rights"}
+{"q": "Delete my data", "expect": "guest-rights#how-to-request-deletion", "topic": "guest-rights"}
+{"q": "What should I include in a deletion request?", "expect": "guest-rights#what-to-include-in-the-request", "topic": "guest-rights"}
+{"q": "How will you check it is really me?", "expect": "guest-rights#identity-verification", "topic": "guest-rights"}
+{"q": "How long does deletion take?", "expect": "guest-rights#how-long-deletion-takes", "topic": "guest-rights"}
+{"q": "What exactly gets deleted?", "expect": "guest-rights#what-gets-deleted-and-what-must-stay", "topic": "guest-rights"}
+{"q": "I only want the marketing to stop, not everything", "expect": "guest-rights#if-you-only-want-the-marketing-to-stop", "topic": "guest-rights"}
+{"q": "Does the restaurant or EatLabs handle my request?", "expect": "guest-rights#requests-routed-to-the-restaurant", "topic": "guest-rights"}
+{"q": "Do you use tracking cookies?", "expect": "guest-rights#cookies-on-the-website", "topic": "guest-rights"}
+{"q": "My phone rings during service and nobody picks up", "expect": "segments-objections#segment-1-busy-single-restaurants", "topic": "segments"}
+{"q": "We run three outlets, does that work?", "expect": "segments-objections#segment-2-restaurant-groups", "topic": "segments"}
+{"q": "We are a bar with ticketed nights", "expect": "segments-objections#segment-3-bars-and-venues", "topic": "segments"}
+{"q": "Which POS systems do you support?", "expect": "segments-objections#integrations-at-a-glance", "topic": "segments"}
+{"q": "Does it work with Petpooja?", "expect": "segments-objections#integrations-at-a-glance", "topic": "segments"}
+{"q": "Will the AI replace my staff?", "expect": "segments-objections#objection-will-the-ai-replace-my-staff", "topic": "segments"}
+{"q": "Do my guests need to download an app?", "expect": "segments-objections#objection-do-my-guests-need-to-download-an-app", "topic": "segments"}
+{"q": "Can the AI get something wrong?", "expect": "segments-objections#objection-can-the-ai-get-it-wrong", "topic": "segments"}
+{"q": "What if our internet goes down?", "expect": "segments-objections#objection-what-if-my-internet-or-the-service-goes-down", "topic": "segments"}
+{"q": "How quickly can we go live?", "expect": "segments-objections#objection-how-fast-can-we-go-live", "topic": "segments"}
+{"q": "Who designed EatLabs?", "expect": "webworksco#who-webworks-co-is-and-what-they-designed", "topic": "webworks"}
+{"q": "Who made this?", "expect": "webworksco#who-webworks-co-is-and-what-they-designed", "topic": "webworks"}
+{"q": "What services does WebWorks Co. offer?", "expect": "webworksco#what-webworks-co-does-its-services", "topic": "webworks"}
+{"q": "Where is WebWorks Co. based?", "expect": "webworksco#where-the-team-is-based", "topic": "webworks"}
+{"q": "Who would I be signing a contract with?", "expect": "webworksco#who-you-sign-a-contract-with", "topic": "webworks"}

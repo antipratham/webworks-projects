@@ -1,0 +1,115 @@
+# WHAT: watches eatlabs.io on a schedule and opens an issue when the site has moved away from the knowledge
+#       base the agent answers from.
+# ROLE: the thing that stops the agent quoting last quarter's price. Copy to .github/workflows/kb-refresh.yml
+#       in eatlabs-llm-voice once the site agent lands there.
+#
+# There is no webhook from a static marketing site, so "real time" is one of two things:
+#   - this schedule, which is the honest default: a change is caught within the hour; or
+#   - a repository_dispatch from the website's own deploy, which IS real time. If the site deploys from CI,
+#     add a step there:  gh api repos/vinodwebworksco/eatlabs-llm-voice/dispatches -f event_type=site-deployed
+#
+# It deliberately does not commit a new knowledge base. It commits the raw scrape and asks a person to read
+# the diff. A pricing page that renders wrong for ten minutes during a deploy would otherwise teach the
+# agent a wrong price, and the agent would then say it on a sales call with complete confidence.
+
+name: kb-refresh
+
+on:
+  schedule:
+    - cron: "17 * * * *"          # hourly, off the hour so it is not queued behind everyone else's cron
+  repository_dispatch:
+    types: [site-deployed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check the site
+        id: watch
+        working-directory: site-agent
+        run: |
+          set +e
+          python tools/watch_site.py --update --json /tmp/report.json | tee /tmp/report.txt
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+        # 0 = unchanged, 10 = a person should look, 20 = site unreachable
+
+      - name: Site unreachable
+        if: steps.watch.outputs.status == '20'
+        run: |
+          echo "::warning::eatlabs.io could not be reached. Not treating this as a change."
+          exit 0
+
+      - name: Rebuild the chunk file
+        if: steps.watch.outputs.status == '10'
+        working-directory: site-agent
+        run: python tools/build_kb.py ./knowledge-base ./kb.jsonl
+
+      # The raw scrape is provenance and is safe to commit unattended: nothing reads it at answer time.
+      # kb.jsonl is rebuilt from the CURATED files, which this job never edits - so it only moves when a
+      # person has already changed them.
+      - name: Commit the new scrape
+        if: steps.watch.outputs.status == '10'
+        run: |
+          git config user.name  "kb-refresh"
+          git config user.email "noreply@eatlabs.in"
+          git add site-agent/source-raw site-agent/kb.jsonl
+          git diff --staged --quiet || git commit -m "kb: site changed on $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: Open an issue for review
+        if: steps.watch.outputs.status == '10'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('/tmp/report.json', 'utf8'));
+            const text = fs.readFileSync('/tmp/report.txt', 'utf8');
+
+            const risky = report.changed.filter(c => c.high_risk);
+            const title = risky.length
+              ? `KB: pricing or legal copy changed on ${report.checked_at.slice(0, 10)}`
+              : `KB: site changed on ${report.checked_at.slice(0, 10)}`;
+
+            // One open issue at a time. A site mid-redesign would otherwise file one every hour.
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'kb-refresh',
+            });
+
+            const body = [
+              risky.length
+                ? '**A high-risk line changed** — money, contract terms or compliance wording. '
+                  + 'The agent may now be quoting something the site no longer says.'
+                : 'The site changed. Nothing matched the high-risk patterns.',
+              '',
+              `New: ${report.new.length} · Changed: ${report.changed.length} · Gone: ${report.gone.length}`,
+              '',
+              '```', text.slice(0, 55000), '```',
+              '',
+              'The raw scrape has been committed. The curated files in `knowledge-base/` have **not** been '
+              + 'touched — update the chunks listed above, then run `python tools/build_kb.py`.',
+            ].join('\n');
+
+            if (open.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open.data[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['kb-refresh'],
+              });
+            }

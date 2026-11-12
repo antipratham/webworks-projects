@@ -1,0 +1,63 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+credentials.json
+service-account*.json
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Build output
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Generated output (research reports, generated proposals, exports)
+/AGENTIC AI APPLICATION/reports/
+/AGENTIC AI APPLICATION/proposals/
+/AGENTIC AI APPLICATION/pdf-service/samples/
+output/
+*.faiss
+
+# Local runtime artifacts
+logs/
+*.log
+instance.txt
+ip.txt
+itype.txt
+
+# Archives and duplicated raw data
+*.zip
+Amazon_popular_books_dataset.csv
+
+# OS / editor
+nul
+Thumbs.db
+desktop.ini
+.DS_Store
+*.lnk
+
+# Projects that have their own repositories
+/SOAP REPORT AI AGENT/
+/SUMERU/
+/EATLABS/AI REVIEWS & FEEDBACK/
+/EATLABS/VOICE AGENT/
+
+# Local working documents
+WebWorks Co - Projects.xlsx

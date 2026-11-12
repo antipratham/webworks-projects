@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menu</title>
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --line: #e7e3dc;
+    --ink: #1c1a17;
+    --muted: #6d675e;
+    --accent: #8a2b2b;
+    --accent-ink: #ffffff;
+    --warn-bg: #fdf3e7;
+    --warn-ink: #7a4a14;
+    --veg: #2f7a3e;
+    --nonveg: #9a3324;
+    --radius: 14px;
+    --shadow: 0 1px 2px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141312;
+      --surface: #1e1c1a;
+      --line: #322e2a;
+      --ink: #f2efea;
+      --muted: #a29a8f;
+      --accent: #e0736b;
+      --accent-ink: #1a1110;
+      --warn-bg: #33261a;
+      --warn-ink: #f0c48a;
+      --veg: #6cc07c;
+      --nonveg: #e8897a;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141312; --surface: #1e1c1a; --line: #322e2a; --ink: #f2efea;
+    --muted: #a29a8f; --accent: #e0736b; --accent-ink: #1a1110;
+    --warn-bg: #33261a; --warn-ink: #f0c48a; --veg: #6cc07c; --nonveg: #e8897a;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 96px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+  header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+  header .wrap { padding-top: 14px; padding-bottom: 12px; }
+  .outlet { font-size: 13px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+  .topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .langs { display: flex; gap: 4px; flex: none; }
+  .langs button { padding: 5px 10px; font-size: 13px; font-weight: 500; background: var(--surface);
+    color: var(--muted); border: 1px solid var(--line); border-radius: 999px; }
+  .langs button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink);
+    border-color: var(--accent); font-weight: 600; }
+  h1 { font-size: 21px; margin: 2px 0 12px; font-weight: 650; letter-spacing: -.01em; }
+
+  .askbar { display: flex; gap: 8px; }
+  .askbar input {
+    flex: 1; min-width: 0; padding: 12px 14px; font-size: 16px; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 11px;
+  }
+  .askbar input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  button {
+    font: inherit; cursor: pointer; border-radius: 11px; border: 1px solid transparent;
+    padding: 12px 16px; background: var(--accent); color: var(--accent-ink); font-weight: 600;
+  }
+  button.ghost { background: var(--surface); color: var(--ink); border-color: var(--line); font-weight: 500; }
+  button:disabled { opacity: .5; cursor: default; }
+  /* What a dish is made of, on its card. */
+  .ftags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .ftag {
+    font-size: 11px; line-height: 1.6; padding: 0 6px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--ink); opacity: .75; white-space: nowrap;
+  }
+  /* The filter row. Wraps to as many lines as it needs on a phone. */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 12px 0 2px; }
+  .filters select, .filters input {
+    font: inherit; font-size: 14px; padding: 8px 10px; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 9px; min-width: 0;
+  }
+  .filters input { width: 96px; }
+  .filters select:focus-visible, .filters input:focus-visible { outline: 2px solid var(--accent); }
+  .filters button { padding: 8px 12px; font-size: 14px; }
+  .filters .count { font-size: 13px; opacity: .7; margin-left: auto; }
+  /* What Stage 1 understood. Shown only with ?debug in the address - this is for whoever is
+     testing the parser, never for a guest, who should see dishes and not a filter. */
+  #debug {
+    margin: 12px 0 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 11px;
+    background: var(--surface); font-size: 12.5px; line-height: 1.5;
+    font-family: ui-monospace, Menlo, Consolas, monospace; overflow-x: auto;
+  }
+  #debug b { color: var(--accent); font-weight: 600; }
+  #debug .row { display: flex; gap: 8px; }
+  #debug .k { color: var(--muted, #888); min-width: 124px; flex: none; }
+  #debug .mood { color: #b4761a; font-weight: 600; }
+  /* The microphone: tap to start, tap again to stop. Red while the browser is listening. */
+  #micbtn { width: 46px; padding: 12px 0; font-size: 17px; line-height: 1; }
+  #micbtn.rec { background: #c0392b; color: #fff; border-color: #c0392b; }
+  #micbtn.busy { opacity: .6; }
+
+  .chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 2px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips button { padding: 7px 12px; font-size: 14px; font-weight: 500; white-space: nowrap;
+    background: var(--surface); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; }
+
+  .answer { margin: 16px 0 4px; padding: 14px 16px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  .answer p { margin: 0; }
+  .answer .meta { margin-top: 8px; font-size: 12.5px; color: var(--muted); }
+
+  h2 { font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted);
+    margin: 26px 0 10px; font-weight: 650; display: flex; justify-content: space-between; align-items: baseline; }
+  h2 span { font-weight: 500; letter-spacing: 0; text-transform: none; font-size: 12.5px; }
+
+  .card {
+    width: 100%; text-align: left; display: flex; gap: 12px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 13px 14px; margin-bottom: 8px; color: inherit; font-weight: 400;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card .body { flex: 1; min-width: 0; }
+  .card .name { font-weight: 600; display: flex; align-items: center; gap: 7px; }
+  .card .desc { color: var(--muted); font-size: 14px; margin-top: 2px;
+    overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .card .price { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  .card .qty { font-size: 12px; color: var(--accent); font-weight: 600; margin-top: 4px; }
+
+  /* Dish images. While image_url is null the tile shows the dish's initials rather
+     than a broken image, so a menu with no photography still reads correctly. */
+  .thumb {
+    position: relative; flex: none; width: 64px; height: 64px; border-radius: 10px;
+    overflow: hidden; background: var(--bg); border: 1px solid var(--line);
+    display: grid; place-items: center;
+  }
+  .thumb::after {
+    content: attr(data-initials); font-size: 17px; font-weight: 650; color: var(--muted);
+    letter-spacing: .02em;
+  }
+  .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px;
+    overflow: hidden; background: var(--bg); border: 1px solid var(--line);
+    display: grid; place-items: center; margin-bottom: 14px; }
+  .hero::after { content: attr(data-initials); font-size: 38px; font-weight: 650; color: var(--muted); }
+  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  .dot { width: 12px; height: 12px; border-radius: 3px; border: 1.5px solid var(--veg);
+    display: inline-grid; place-items: center; flex: none; }
+  .dot::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--veg); }
+  .dot.nv { border-color: var(--nonveg); }
+  .dot.nv::after { background: var(--nonveg); }
+
+  .tag { font-size: 11.5px; padding: 2px 7px; border-radius: 999px; background: var(--bg);
+    border: 1px solid var(--line); color: var(--muted); }
+  .tag.rank { color: var(--accent); border-color: var(--accent); }
+
+  dialog {
+    border: none; padding: 0; background: transparent; max-width: 520px; width: 100%;
+    margin: auto auto 0; color: var(--ink);
+  }
+  dialog::backdrop { background: rgba(0,0,0,.45); }
+  .sheet { background: var(--surface); border-radius: 18px 18px 0 0; padding: 20px 20px 24px;
+    border: 1px solid var(--line); border-bottom: none; }
+  @media (min-width: 560px) { dialog { margin: auto; } .sheet { border-radius: 18px; border-bottom: 1px solid var(--line); } }
+  .sheet h3 { margin: 0 0 4px; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+  .sheet .price-lg { font-size: 19px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .sheet .desc { color: var(--muted); margin: 8px 0 14px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+
+  .allergens { background: var(--warn-bg); color: var(--warn-ink); border-radius: 10px;
+    padding: 10px 12px; font-size: 14px; margin-bottom: 14px; }
+  .allergens b { font-weight: 650; }
+
+  .tastes { display: grid; gap: 6px; margin-bottom: 16px; }
+  .taste { display: grid; grid-template-columns: 62px 1fr 22px; gap: 10px; align-items: center;
+    font-size: 13px; color: var(--muted); }
+  .bar { height: 6px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
+
+  .stepper { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .stepper button { width: 42px; height: 42px; padding: 0; font-size: 20px; line-height: 1;
+    background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+  .stepper output { font-size: 18px; font-weight: 650; min-width: 28px; text-align: center;
+    font-variant-numeric: tabular-nums; }
+  .sheet .row { display: flex; gap: 10px; }
+  .sheet .row button { flex: 1; }
+
+  .cartbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 12px 16px 16px;
+    background: var(--surface); border-top: 1px solid var(--line); box-shadow: var(--shadow); }
+  .cartbar .wrap { display: flex; align-items: center; gap: 12px; padding: 0; }
+  .cartbar .sum { flex: 1; min-width: 0; }
+  .cartbar .sum b { font-variant-numeric: tabular-nums; }
+  .cartbar .sum small { display: block; color: var(--muted); font-size: 12.5px; }
+  .hidden { display: none !important; }
+
+  .line { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .line:last-of-type { border-bottom: none; }
+  .line .n { flex: 1; min-width: 0; }
+  .line .n small { color: var(--muted); display: block; font-size: 12.5px; }
+  .empty { color: var(--muted); padding: 26px 0; text-align: center; }
+  .note { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topline">
+      <div class="outlet" id="outlet">Loading…</div>
+      <div class="langs" id="langs">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="hi">हिंदी</button>
+        <button type="button" data-lang="kn">ಕನ್ನಡ</button>
+      </div>
+    </div>
+    <h1 id="heading">What are you in the mood for?</h1>
+    <form class="askbar" id="askform">
+      <input id="q" placeholder="something spicy, no dairy…" autocomplete="off" enterkeyhint="search">
+      <button class="ghost" type="button" id="micbtn" aria-label="Speak" title="Speak instead of typing">🎙</button>
+      <button type="submit" id="askbtn">Ask</button>
+    </form>
+    <div class="chips" id="chips"></div>
+    <!-- Browsing rather than asking. These go straight to Stage 2 - no model - and show every
+         match, not the two or three a concierge would name. -->
+    <div class="filters" id="filters">
+      <select id="f-course" aria-label="Course">
+        <option value="">Any course</option>
+        <option value="starter">Starters</option>
+        <option value="soup">Soups</option>
+        <option value="salad">Salads</option>
+        <option value="main">Mains</option>
+        <option value="bread">Breads</option>
+        <option value="dessert">Desserts</option>
+        <option value="beverage">Drinks</option>
+      </select>
+      <select id="f-diet" aria-label="Diet">
+        <option value="">Any diet</option>
+        <option value="veg">Veg</option>
+        <option value="vegan">Vegan</option>
+        <option value="jain">Jain</option>
+        <option value="gluten_free">Gluten free</option>
+        <option value="non_veg">Non-veg</option>
+      </select>
+      <select id="f-free" aria-label="Without">
+        <option value="">No allergen filter</option>
+        <option value="dairy">No dairy</option>
+        <option value="gluten">No gluten</option>
+        <option value="peanut">No peanut</option>
+        <option value="tree_nut">No tree nut</option>
+        <option value="egg">No egg</option>
+        <option value="shellfish">No shellfish</option>
+        <option value="soy">No soy</option>
+      </select>
+      <select id="f-food" aria-label="Food type">
+        <option value="">Any food type</option>
+        <option value="chicken">Chicken</option>
+        <option value="mutton">Mutton / lamb</option>
+        <option value="seafood">Seafood</option>
+        <option value="egg">Egg</option>
+        <option value="paneer">Paneer</option>
+        <option value="cheese">Cheese</option>
+        <option value="mushroom">Mushroom</option>
+        <option value="beans">Beans / chole / rajma</option>
+        <option value="vegetable">Vegetable</option>
+        <option value="potato">Potato</option>
+        <option value="lentil">Lentil / dal</option>
+        <option value="rice">Rice / biryani</option>
+        <option value="noodles">Noodles</option>
+        <option value="pasta">Pasta</option>
+        <option value="pizza">Pizza</option>
+        <option value="coffee">Coffee</option>
+        <option value="tea">Tea</option>
+        <option value="juice">Juice / lassi</option>
+      </select>
+      <select id="f-weight" aria-label="Weight">
+        <option value="">Light or heavy</option>
+        <option value="light">Light</option>
+        <option value="heavy">Heavy</option>
+      </select>
+      <select id="f-sort" aria-label="Sort">
+        <option value="">Our order</option>
+        <option value="bestseller">Bestsellers</option>
+        <option value="price_asc">Price, low to high</option>
+        <option value="price_desc">Price, high to low</option>
+      </select>
+      <input id="f-price" type="number" min="1" step="10" inputmode="numeric" placeholder="Max ₹">
+      <button class="ghost" type="button" id="f-clear">Clear</button>
+      <span class="count" id="f-count"></span>
+    </div>
+    <div id="debug" hidden></div>
+  </div>
+</header>
+
+<main class="wrap" id="main"></main>
+
+<div class="cartbar hidden" id="cartbar">
+  <div class="wrap">
+    <div class="sum"><b id="carttotal">₹0</b><small id="cartcount">0 items</small></div>
+    <button class="ghost" id="viewcart">View</button>
+    <button id="placeorder">Place order</button>
+  </div>
+</div>
+
+<dialog id="detail"><div class="sheet" id="detailbody"></div></dialog>
+<dialog id="cart"><div class="sheet" id="cartbody"></div></dialog>
+
+<script>
+const rupees = p => "₹" + (p % 100 === 0 ? p / 100 : (p / 100).toFixed(2));
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const presets = () => [t("showMenu", "Show the menu"), t("p1", "the bestseller"), t("p2", "something spicy"),
+  t("p3", "vegan options"), t("p4", "something light"), t("p5", "under ₹200")];
+
+const state = { sections: [], cart: new Map(), item: null, qty: 1, lang: "en", ui: {} };
+const t = (key, fallback) => state.ui[key] ?? fallback;
+const $ = id => document.getElementById(id);
+
+/* ---------- rendering ---------- */
+
+/* Up to two initials, used by the placeholder tile when there is no photograph. */
+function initials(name) {
+  return name.replace(/[^A-Za-z ]/g, "").split(/\s+/).filter(Boolean).slice(0, 2)
+    .map(w => w[0].toUpperCase()).join("") || "·";
+}
+
+/* An image that fails to load removes itself, which uncovers the initials beneath. */
+function picture(item, cls) {
+  const img = item.image_url
+    ? `<img src="${esc(item.image_url)}" alt="${esc(item.name)}" loading="lazy" onerror="this.remove()">`
+    : "";
+  return `<span class="${cls}" data-initials="${esc(initials(item.name))}">${img}</span>`;
+}
+
+/* What the dish is made of, read off the item's own food_types. Shown so a guest can see why
+   a dish came back for "seafood" - and see when it did not. */
+function foodTypeTags(item) {
+  const types = item.food_types || [];
+  if (!types.length) return "";
+  return `<span class="ftags">${types.map(t => `<span class="ftag">${esc(t.replace("_", " "))}</span>`).join("")}</span>`;
+}
+
+function itemCard(item) {
+  const inCart = state.cart.get(item.id);
+  const nonVeg = item.dietary.includes("non_veg");
+  return `<button class="card" data-id="${item.id}">
+    ${picture(item, "thumb")}
+    <span class="body">
+      <span class="name"><span class="dot ${nonVeg ? "nv" : ""}"></span>${esc(item.name)}</span>
+      <span class="desc">${esc(item.description)}</span>
+      ${foodTypeTags(item)}
+      ${inCart ? `<span class="qty">${inCart.qty} ${esc(t("inYourOrder", "in your order"))}</span>` : ""}
+    </span>
+    <span class="price">${rupees(item.price_paise)}</span>
+  </button>`;
+}
+
+function renderSections(sections) {
+  // Listings only. The written answer is gone: a guest scanning dishes does not want a
+  // paragraph restating two of them, and the count now says how many are on screen against
+  // how many matched, instead of "53 matching" over a list of two.
+  if (!sections.length) {
+    $("main").innerHTML = `<p class="empty">${esc(t("nothingToShow", "Nothing to show."))}</p>`;
+    return;
+  }
+  $("main").innerHTML = sections.map(s => {
+    const total = s.count ?? s.totalMatches ?? s.items.length;
+    const label = total > s.items.length
+      ? `${s.items.length} ${t("of", "of")} ${total}`
+      : `${total} ${total === 1 ? t("item", "item") : t("items", "items")}`;
+    return `<h2>${esc(s.label)}<span>${esc(label)}</span></h2>${s.items.map(itemCard).join("")}`;
+  }).join("");
+}
+
+/* ---------- detail sheet ---------- */
+
+const TASTES = ["sweet", "sour", "salty", "bitter", "umami"];
+
+function openDetail(item) {
+  state.item = item;
+  state.qty = state.cart.get(item.id)?.qty ?? 1;
+  const nonVeg = item.dietary.includes("non_veg");
+  const tags = [
+    ...item.dietary.map(d => `<span class="tag">${esc(d.replace(/_/g, " "))}</span>`),
+    ...item.flavor_notes.map(f => `<span class="tag">${esc(f.replace(/_/g, " "))}</span>`),
+    item.rank_this_week ? `<span class="tag rank">#${item.rank_this_week} this week</span>`
+      : item.is_bestseller ? `<span class="tag rank">bestseller</span>` : ""
+  ].filter(Boolean).join("");
+
+  const tastes = TASTES.filter(t => typeof item.basic_tastes[t] === "number").map(t => {
+    const v = item.basic_tastes[t];
+    return `<div class="taste"><span>${t}</span><span class="bar"><i style="width:${(v / 3) * 100}%"></i></span><span>${v}/3</span></div>`;
+  }).join("");
+
+  $("detailbody").innerHTML = `
+    ${picture(item, "hero")}
+    <h3><span class="dot ${nonVeg ? "nv" : ""}"></span>${esc(item.name)}</h3>
+    <div class="price-lg">${rupees(item.price_paise)}</div>
+    <p class="desc">${esc(item.description)}</p>
+    ${tags ? `<div class="tags">${tags}</div>` : ""}
+    ${item.allergens.length
+      ? `<div class="allergens"><b>${esc(t("contains", "Contains:"))}</b> ${item.allergens.map(a => esc(a.replace(/_/g, " "))).join(", ")}</div>`
+      : item.tags_complete
+        ? `<div class="allergens"><b>${esc(t("noAllergens", "No allergens listed"))}</b> ${esc(t("forThisDish", "for this dish."))}</div>`
+        : `<div class="allergens"><b>${esc(t("notTagged", "Not fully tagged."))}</b> ${esc(t("notTaggedHelp", "Please ask your server about ingredients and allergens."))}</div>`}
+    ${tastes ? `<div class="tastes">${tastes}</div>` : ""}
+    <div class="stepper">
+      <button type="button" id="minus" aria-label="Fewer">−</button>
+      <output id="qtyout">${state.qty}</output>
+      <button type="button" id="plus" aria-label="More">+</button>
+    </div>
+    <div class="row">
+      <button class="ghost" type="button" id="closedetail">${esc(t("close", "Close"))}</button>
+      <button type="button" id="addbtn">${esc(t("add", "Add"))} · <span id="addtotal">${rupees(item.price_paise * state.qty)}</span></button>
+    </div>`;
+  $("detail").showModal();
+
+  const sync = () => { $("qtyout").textContent = state.qty; $("addtotal").textContent = rupees(item.price_paise * state.qty); };
+  $("minus").onclick = () => { state.qty = Math.max(1, state.qty - 1); sync(); };
+  $("plus").onclick = () => { state.qty = Math.min(20, state.qty + 1); sync(); };
+  $("closedetail").onclick = () => $("detail").close();
+  $("addbtn").onclick = () => {
+    state.cart.set(item.id, { item, qty: state.qty });
+    $("detail").close();
+    renderCartBar();
+    refreshVisibleCards();
+  };
+}
+
+function refreshVisibleCards() {
+  document.querySelectorAll(".card").forEach(card => {
+    const item = findItem(card.dataset.id);
+    if (item) card.outerHTML = itemCard(item);
+  });
+}
+
+function findItem(id) {
+  for (const s of state.sections) { const hit = s.items.find(i => i.id === id); if (hit) return hit; }
+  return state.cart.get(id)?.item ?? null;
+}
+
+/* ---------- cart ---------- */
+
+function cartTotal() {
+  let total = 0, count = 0;
+  for (const { item, qty } of state.cart.values()) { total += item.price_paise * qty; count += qty; }
+  return { total, count };
+}
+
+function renderCartBar() {
+  const { total, count } = cartTotal();
+  $("cartbar").classList.toggle("hidden", count === 0);
+  $("carttotal").textContent = rupees(total);
+  $("cartcount").textContent = count + (count === 1 ? " item" : " items");
+}
+
+function renderCartBody() {
+  const lines = [...state.cart.values()].map(({ item, qty }) => `
+    <div class="line">
+      <span class="n">${esc(item.name)}<small>${rupees(item.price_paise)} ${esc(t("each", "each"))}</small></span>
+      <button class="ghost" data-dec="${item.id}" style="width:36px;height:36px;padding:0">−</button>
+      <output style="min-width:22px;text-align:center">${qty}</output>
+      <button class="ghost" data-inc="${item.id}" style="width:36px;height:36px;padding:0">+</button>
+      <span class="price" style="min-width:64px;text-align:right">${rupees(item.price_paise * qty)}</span>
+    </div>`).join("");
+  const { total } = cartTotal();
+  $("cartbody").innerHTML = `
+    <h3>${esc(t("yourOrder", "Your order"))}</h3>
+    ${lines || `<p class="empty">${esc(t("nothingAdded", "Nothing added yet."))}</p>`}
+    <div class="line" style="border-top:1px solid var(--line);margin-top:6px">
+      <span class="n"><b>${esc(t("total", "Total"))}</b></span><span class="price"><b>${rupees(total)}</b></span>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <button class="ghost" type="button" id="closecart">${esc(t("keepBrowsing", "Keep browsing"))}</button>
+      <button type="button" id="confirm">${esc(t("placeOrder", "Place order"))}</button>
+    </div>
+    <p class="note">${esc(t("serverNote", "The total is recalculated by the server from the menu when you place the order."))}</p>`;
+  $("closecart").onclick = () => $("cart").close();
+  $("confirm").onclick = placeOrder;
+  $("cartbody").querySelectorAll("[data-inc]").forEach(b => b.onclick = () => changeQty(b.dataset.inc, 1));
+  $("cartbody").querySelectorAll("[data-dec]").forEach(b => b.onclick = () => changeQty(b.dataset.dec, -1));
+}
+
+/* Re-rendering the body is separate from opening the dialog: showModal() throws if
+   the dialog is already open, which is what the +/- buttons do. */
+function openCart() {
+  renderCartBody();
+  if (!$("cart").open) $("cart").showModal();
+}
+
+function changeQty(id, delta) {
+  const entry = state.cart.get(id);
+  if (!entry) return;
+  const qty = entry.qty + delta;
+  if (qty < 1) state.cart.delete(id); else state.cart.set(id, { ...entry, qty: Math.min(20, qty) });
+  renderCartBar(); refreshVisibleCards();
+  if (state.cart.size === 0) $("cart").close(); else renderCartBody();
+}
+
+async function placeOrder() {
+  const items = [...state.cart.values()].map(({ item, qty }) => ({ id: item.id, qty }));
+  const res = await fetch("/api/order", {
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ items })
+  });
+  const order = await res.json();
+  if (!res.ok) { alert(order.error ?? "Could not place the order"); return; }
+  $("cartbody").innerHTML = `
+    <h3>${esc(t("orderPlaced", "Order placed"))}</h3>
+    <p class="desc">${esc(order.order_id)} · ${esc(t("sentToKitchen", "sent to the kitchen."))}</p>
+    ${order.lines.map(l => `<div class="line"><span class="n">${l.qty} × ${esc(l.name)}</span><span class="price">${rupees(l.line_paise)}</span></div>`).join("")}
+    <div class="line" style="border-top:1px solid var(--line)"><span class="n"><b>${esc(t("total", "Total"))}</b></span><span class="price"><b>${rupees(order.total_paise)}</b></span></div>
+    <div class="row" style="margin-top:14px"><button type="button" id="done">${esc(t("done", "Done"))}</button></div>`;
+  state.cart.clear(); renderCartBar(); refreshVisibleCards();
+  $("done").onclick = () => $("cart").close();
+}
+
+/* ---------- asking ---------- */
+
+async function ask(query) {
+  // Asking and filtering are two different requests. A question that left the filter row set
+  // would answer against constraints the guest cannot see in their own words.
+  clearFilters(false);
+  $("q").value = query;
+  $("askbtn").disabled = true; $("askbtn").textContent = "…";
+  try {
+    if (query === t("showMenu", "Show the menu") || /^show the menu$/i.test(query)) { await loadMenu(); return; }
+    const res = await fetch(`/api/ask?lang=${state.lang}`, {
+      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ query })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error ?? "request failed");
+    // The concierge may answer in the language the guest typed in; follow it.
+    if (data.lang && data.lang !== state.lang) setLang(data.lang, false);
+    if (data.ui) state.ui = data.ui;
+    state.sections = data.sections;
+    renderSections(data.sections);
+    showDebug(data);
+  } catch (err) {
+    $("main").innerHTML = `<p class="empty">${esc(err.message)}</p>`;
+  } finally {
+    $("askbtn").disabled = false; $("askbtn").textContent = "Ask";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+
+async function loadMenu() {
+  const data = await (await fetch(`/api/menu?lang=${state.lang}`)).json();
+  $("outlet").textContent = data.outlet + (data.model ? "" : " · no model, stub parser");
+  document.title = data.outlet;
+  state.ui = data.ui ?? {};
+  applyStrings();
+  state.sections = data.sections;
+  renderSections(data.sections);
+}
+
+/** Repaints every fixed string after a language change. */
+function applyStrings() {
+  document.documentElement.lang = state.lang;
+  $("heading").textContent = t("heading", "What are you in the mood for?");
+  $("q").placeholder = t("placeholder", "something spicy, no dairy…");
+  $("askbtn").textContent = t("ask", "Ask");
+  $("viewcart").textContent = t("view", "View");
+  $("placeorder").textContent = t("placeOrder", "Place order");
+  $("chips").innerHTML = presets().map(p => `<button type="button">${esc(p)}</button>`).join("");
+  for (const b of $("langs").querySelectorAll("button")) {
+    b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang));
+  }
+  renderCartBar();
+}
+
+function setLang(lang, reload = true) {
+  state.lang = lang;
+  try { localStorage.setItem("lang", lang); } catch { /* private window */ }
+  if (reload) loadMenu(); else applyStrings();
+}
+
+/* ---------- the filters ---------- */
+/* These bypass the model entirely: the filter is already structured, so /api/filter runs
+   Stage 2 and nothing else. Every match is shown, because a guest who set a filter asked to
+   see what there is - unlike a question, which gets a shortlist. */
+
+async function applyFilters() {
+  const course = $("f-course").value;
+  const diet   = $("f-diet").value;
+  const free   = $("f-free").value;
+  const food   = $("f-food").value;
+  const weight = $("f-weight").value;
+  const sort   = $("f-sort").value;
+  const rupees = parseInt($("f-price").value, 10);
+
+  const body = {
+    course: course || null,
+    dietary_include: diet ? [diet] : [],
+    dietary_exclude: free ? [free] : [],
+    food_types: food ? [food] : [],
+    weight: weight || null,
+    sort_by: sort || null,
+    max_price_paise: Number.isFinite(rupees) && rupees > 0 ? rupees * 100 : null,
+  };
+  const anySet = course || diet || free || food || weight || sort || body.max_price_paise;
+  if (!anySet) { $("f-count").textContent = ""; await loadMenu(); return; }
+
+  try {
+    const res = await fetch(`/api/filter?lang=${state.lang}`, {
+      method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error ?? "filter failed");
+    state.sections = data.sections;
+    $("f-count").textContent = data.total + " " + (data.total === 1 ? t("item", "item") : t("items", "items"));
+    renderSections(data.sections);
+    showDebug({ filter: data.filter, matchType: "filter", exactCount: data.total });
+  } catch (err) {
+    $("main").innerHTML = `<p class="empty">${esc(err.message)}</p>`;
+  }
+}
+
+function clearFilters(reload) {
+  for (const id of ["f-course", "f-diet", "f-free", "f-food", "f-weight", "f-sort"]) $(id).value = "";
+  $("f-price").value = "";
+  $("f-count").textContent = "";
+  if (reload !== false) loadMenu();
+}
+
+/* ---------- what Stage 1 understood (?debug only) ---------- */
+/* Open the page with ?debug to see the filter behind an answer: which fields the request
+   actually set, and which mood - if any - filled a gap the guest left. Without it the page is
+   what a guest sees, which is dishes. */
+
+const DEBUG = new URLSearchParams(location.search).has("debug");
+
+function showDebug(data) {
+  if (!DEBUG) return;
+  const f = data.filter;
+  const box = $("debug");
+  if (!f) { box.hidden = true; return; }
+  const row = (k, v) => `<div class="row"><span class="k">${esc(k)}</span><span>${v}</span></div>`;
+  const set = Object.entries({
+    dietary_include: f.dietary_include, dietary_exclude: f.dietary_exclude,
+    course: f.course, taste_preferences: f.taste_preferences, weight: f.weight,
+    sort_by: f.sort_by, max_price_paise: f.max_price_paise, party_size: f.party_size,
+    unexpressed: f.unexpressed,
+  }).filter(([, v]) => v !== null && v !== undefined &&
+                       !(Array.isArray(v) && !v.length) &&
+                       !(typeof v === "object" && !Array.isArray(v) && !Object.keys(v).length));
+
+  box.innerHTML =
+    row("request_kind", `<b>${esc(f.request_kind)}</b> · lang ${esc(f.language)}`) +
+    (f.mood ? row("mood", `<span class="mood">${esc(f.mood)}</span> — fills gaps only, never diet`)
+            : row("mood", "<i>none said</i>")) +
+    (set.length ? set.map(([k, v]) => row(k, esc(JSON.stringify(v)))).join("")
+                : row("asked for", "<i>nothing the vocabulary carries</i>")) +
+    row("result", `${esc(data.matchType)}${data.exactCount ? " · " + data.exactCount + " matching" : ""}`);
+  box.hidden = false;
+}
+
+/* ---------- the microphone ---------- */
+/* The speech service reads audio through libsndfile, which cannot open the webm/opus that
+   MediaRecorder produces. So the page captures raw PCM and writes the WAV header itself:
+   mono 16-bit at the capture rate, which is what Whisper wants and needs no conversion. */
+
+let rec = null;
+
+function encodeWav(samples, rate) {
+  const buf = new ArrayBuffer(44 + samples.length * 2);
+  const view = new DataView(buf);
+  const str = (off, s) => { for (let i = 0; i < s.length; i++) view.setUint8(off + i, s.charCodeAt(i)); };
+  str(0, "RIFF"); view.setUint32(4, 36 + samples.length * 2, true); str(8, "WAVE");
+  str(12, "fmt "); view.setUint32(16, 16, true); view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true); view.setUint32(24, rate, true);
+  view.setUint32(28, rate * 2, true); view.setUint16(32, 2, true); view.setUint16(34, 16, true);
+  str(36, "data"); view.setUint32(40, samples.length * 2, true);
+  let off = 44;
+  for (const s of samples) {
+    const v = Math.max(-1, Math.min(1, s));
+    view.setInt16(off, v < 0 ? v * 0x8000 : v * 0x7fff, true);
+    off += 2;
+  }
+  return new Blob([buf], { type: "audio/wav" });
+}
+
+async function startRecording() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true },
+  });
+  const ctx = new AudioContext({ sampleRate: 16000 });
+  const src = ctx.createMediaStreamSource(stream);
+  const node = ctx.createScriptProcessor(4096, 1, 1);
+  const chunks = [];
+  node.onaudioprocess = e => chunks.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+  src.connect(node); node.connect(ctx.destination);
+  rec = { stream, ctx, src, node, chunks };
+  $("micbtn").classList.add("rec");
+}
+
+async function stopRecording() {
+  if (!rec) return;
+  const { stream, ctx, src, node, chunks } = rec;
+  rec = null;
+  node.disconnect(); src.disconnect();
+  for (const track of stream.getTracks()) track.stop();
+  const rate = ctx.sampleRate;          // the browser may not honour the rate we asked for
+  await ctx.close();
+  $("micbtn").classList.remove("rec");
+
+  const total = chunks.reduce((n, c) => n + c.length, 0);
+  if (total < rate * 0.3) return;       // a slipped tap, not speech
+  const flat = new Float32Array(total);
+  let off = 0;
+  for (const c of chunks) { flat.set(c, off); off += c.length; }
+
+  $("micbtn").classList.add("busy"); $("micbtn").disabled = true;
+  const wasPlaceholder = $("q").placeholder;
+  $("q").placeholder = "listening…";
+  try {
+    const fd = new FormData();
+    fd.append("file", encodeWav(flat, rate), "speech.wav");
+    fd.append("model", "large-v3");
+    fd.append("language", state.lang);
+    const res = await fetch("/api/transcribe", { method: "POST", body: fd });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error ?? "transcription failed");
+    const text = (data.text ?? "").trim();
+    if (text) ask(text);
+    else $("q").placeholder = "nothing heard — try again";
+  } catch (err) {
+    $("main").innerHTML = `<p class="empty">${esc(err.message)}</p>`;
+    $("q").placeholder = wasPlaceholder;
+  } finally {
+    $("micbtn").classList.remove("busy"); $("micbtn").disabled = false;
+  }
+}
+
+/* ---------- wiring ---------- */
+
+$("micbtn").onclick = () => {
+  const fail = err => { $("main").innerHTML = `<p class="empty">${esc(err.message)}</p>`; };
+  if (rec) stopRecording().catch(fail); else startRecording().catch(fail);
+};
+for (const id of ["f-course", "f-diet", "f-free", "f-food", "f-weight", "f-sort"]) $(id).onchange = applyFilters;
+$("f-price").onchange = applyFilters;
+$("f-clear").onclick = () => clearFilters(true);
+$("chips").onclick = e => { const b = e.target.closest("button"); if (b) ask(b.textContent); };
+$("langs").onclick = e => { const b = e.target.closest("button"); if (b) setLang(b.dataset.lang); };
+try { const saved = localStorage.getItem("lang"); if (["en", "hi", "kn"].includes(saved)) state.lang = saved; } catch { /* ignore */ }
+$("askform").onsubmit = e => { e.preventDefault(); const q = $("q").value.trim(); if (q) ask(q); };
+$("main").onclick = e => { const card = e.target.closest(".card"); if (card) { const item = findItem(card.dataset.id); if (item) openDetail(item); } };
+$("viewcart").onclick = openCart;
+$("placeorder").onclick = openCart;
+for (const d of [$("detail"), $("cart")]) d.onclick = e => { if (e.target === d) d.close(); };
+
+loadMenu();
+</script>
+</body>
+</html>

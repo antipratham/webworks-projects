@@ -1,0 +1,5910 @@
+{
+  "outlet_id": "outlet_001",
+  "outlet_name": "Café Nova, Indiranagar",
+  "currency": "INR",
+  "schema_version": "2.0",
+  "taste_taxonomy": {
+    "basic_tastes": {
+      "description": "Every item scored 0-3 on each. 0 = absent, 3 = dominant. The 'spicy' score was seeded from the spicy_warm flavour note (present -> 2, absent -> 0) when spice was added as a taste; the outlet should refine it to a real 0-3 per dish.",
+      "values": [
+        "sweet",
+        "sour",
+        "salty",
+        "bitter",
+        "umami",
+        "spicy"
+      ]
+    },
+    "flavor_notes": {
+      "description": "Fixed enum. An item may carry zero or more. Assigned from actual recipe/ingredients, never inferred from the dish name alone.",
+      "values": [
+        "fruity",
+        "sweet_creamy",
+        "spicy_warm",
+        "floral_herbal",
+        "savory_pungent"
+      ]
+    }
+  },
+  "item_count": 200,
+  "menu": [
+    {
+      "id": "M001",
+      "name": "Chef's Rotating Special M001",
+      "description": "Ask your server about today's chef special",
+      "image_url": null,
+      "price_paise": 14000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [],
+      "basic_tastes": {},
+      "flavor_notes": [],
+      "allergens": [],
+      "tags_complete": false,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M002",
+      "name": "Chef's Rotating Special M002",
+      "description": "Ask your server about today's chef special",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [],
+      "basic_tastes": {},
+      "flavor_notes": [],
+      "allergens": [],
+      "tags_complete": false,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M003",
+      "name": "Chef's Rotating Special M003",
+      "description": "Ask your server about today's chef special",
+      "image_url": null,
+      "price_paise": 37000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [],
+      "basic_tastes": {},
+      "flavor_notes": [],
+      "allergens": [],
+      "tags_complete": false,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M004",
+      "name": "Jalebi",
+      "description": "Crispy spiral fritters soaked in sugar syrup",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M005",
+      "name": "Black Forest Pastry",
+      "description": "Chocolate sponge layered with cherries and cream",
+      "image_url": null,
+      "price_paise": 23000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M006",
+      "name": "Phirni",
+      "description": "Ground rice pudding flavored with cardamom and saffron",
+      "image_url": null,
+      "price_paise": 15000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 15
+    },
+    {
+      "id": "M007",
+      "name": "Masala Chai",
+      "description": "Spiced Indian tea with milk",
+      "image_url": null,
+      "price_paise": 6000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M008",
+      "name": "Chilli Chicken Dry",
+      "description": "Wok-tossed chicken in Indo-Chinese chilli garlic sauce",
+      "image_url": null,
+      "price_paise": 36000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M009",
+      "name": "Black Coffee",
+      "description": "Freshly brewed black coffee",
+      "image_url": null,
+      "price_paise": 9000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 2,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M010",
+      "name": "Gajar Ka Halwa",
+      "description": "Slow-cooked grated carrot pudding with ghee and nuts",
+      "image_url": null,
+      "price_paise": 22000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M011",
+      "name": "Chicken Fried Rice",
+      "description": "Wok-tossed rice with chicken and soy sauce",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M012",
+      "name": "Veg Manchurian Gravy",
+      "description": "Vegetable balls simmered in a tangy Manchurian sauce",
+      "image_url": null,
+      "price_paise": 29000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M013",
+      "name": "Vegetable Pulao",
+      "description": "Basmati rice cooked with mixed vegetables and whole spices",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M014",
+      "name": "Prawn Ghee Roast",
+      "description": "Mangalorean-style prawns in a fiery ghee-spice roast",
+      "image_url": null,
+      "price_paise": 36000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy",
+        "shellfish"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M015",
+      "name": "Kolkata Style Chicken Cutlet",
+      "description": "Pan-fried spiced chicken cutlets",
+      "image_url": null,
+      "price_paise": 37000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M016",
+      "name": "Fish Amritsari",
+      "description": "Batter-fried fish fillets with carom seed and spices",
+      "image_url": null,
+      "price_paise": 43000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M017",
+      "name": "Veg Biryani",
+      "description": "Fragrant basmati rice dum-cooked with mixed vegetables",
+      "image_url": null,
+      "price_paise": 37000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 12
+    },
+    {
+      "id": "M018",
+      "name": "Butter Naan",
+      "description": "Leavened flatbread brushed with butter, tandoor-baked",
+      "image_url": null,
+      "price_paise": 9000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M019",
+      "name": "Margherita Pizza",
+      "description": "Classic pizza with tomato, mozzarella and basil",
+      "image_url": null,
+      "price_paise": 34000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M020",
+      "name": "Curd Rice",
+      "description": "South Indian style rice tempered and mixed with yogurt",
+      "image_url": null,
+      "price_paise": 36000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M021",
+      "name": "Lemon Rice",
+      "description": "Tangy rice tempered with mustard seeds and curry leaves",
+      "image_url": null,
+      "price_paise": 17000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "fruity",
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M022",
+      "name": "Navratan Korma",
+      "description": "Nine vegetables and fruits in a mild creamy gravy",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M023",
+      "name": "Buttermilk (Chaas)",
+      "description": "Spiced churned yogurt drink with cumin and mint",
+      "image_url": null,
+      "price_paise": 13000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M024",
+      "name": "Sweet Corn Veg Soup",
+      "description": "Classic Indo-Chinese style corn and vegetable soup",
+      "image_url": null,
+      "price_paise": 16000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 2
+    },
+    {
+      "id": "M025",
+      "name": "Bombay Veg Sandwich",
+      "description": "Street-style sandwich with potato, chutney and chaat masala",
+      "image_url": null,
+      "price_paise": 17000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M026",
+      "name": "Grilled Cheese Sandwich",
+      "description": "Toasted sandwich oozing with melted cheese",
+      "image_url": null,
+      "price_paise": 18000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 11
+    },
+    {
+      "id": "M027",
+      "name": "Cheesecake",
+      "description": "Baked creamy cheesecake with a biscuit base",
+      "image_url": null,
+      "price_paise": 20000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M028",
+      "name": "Rasmalai",
+      "description": "Soft cottage cheese discs soaked in saffron milk",
+      "image_url": null,
+      "price_paise": 12000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M029",
+      "name": "Mutton Handi",
+      "description": "Slow-cooked mutton curry served in a clay handi",
+      "image_url": null,
+      "price_paise": 43000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": null
+    },
+    {
+      "id": "M030",
+      "name": "Fresh Lime Soda",
+      "description": "Chilled soda with fresh lime, sweet or salted",
+      "image_url": null,
+      "price_paise": 10000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M031",
+      "name": "Penne Arrabbiata",
+      "description": "Penne pasta in a spicy tomato and chilli sauce",
+      "image_url": null,
+      "price_paise": 28000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": null
+    },
+    {
+      "id": "M032",
+      "name": "Jaljeera",
+      "description": "Tangy spiced cumin and mint cooler",
+      "image_url": null,
+      "price_paise": 15000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M033",
+      "name": "Classic Veg Burger",
+      "description": "Crispy vegetable patty with lettuce and mayo",
+      "image_url": null,
+      "price_paise": 16000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 3,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M034",
+      "name": "Chicken Manchurian Dry",
+      "description": "Wok-tossed chicken in tangy Manchurian sauce",
+      "image_url": null,
+      "price_paise": 38000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M035",
+      "name": "Rajma Masala",
+      "description": "Red kidney beans simmered in a thick tomato gravy",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M036",
+      "name": "Hakka Noodles",
+      "description": "Classic Indo-Chinese stir-fried noodles with vegetables",
+      "image_url": null,
+      "price_paise": 26000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M037",
+      "name": "Plain Dosa",
+      "description": "Crisp thin rice and lentil crepe",
+      "image_url": null,
+      "price_paise": 17000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M038",
+      "name": "Hyderabadi Dum Biryani",
+      "description": "Slow dum-cooked biryani in the Hyderabadi tradition",
+      "image_url": null,
+      "price_paise": 38000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M039",
+      "name": "Hara Bhara Kebab",
+      "description": "Spinach and green pea patties, shallow fried",
+      "image_url": null,
+      "price_paise": 28000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M040",
+      "name": "Goan Fish Curry",
+      "description": "Fish simmered in a coconut and tamarind gravy",
+      "image_url": null,
+      "price_paise": 40000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M041",
+      "name": "Jain Vegetable Biryani",
+      "description": "Fragrant rice with vegetables, no onion or garlic",
+      "image_url": null,
+      "price_paise": 41000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "jain",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M042",
+      "name": "Paneer Lababdar",
+      "description": "Cottage cheese in a velvety tomato-onion gravy",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 1,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M043",
+      "name": "Chicken Curry",
+      "description": "Home-style chicken curry in onion-tomato gravy",
+      "image_url": null,
+      "price_paise": 40000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M044",
+      "name": "Tandoori Roti",
+      "description": "Whole wheat bread baked in a clay oven",
+      "image_url": null,
+      "price_paise": 10000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 5
+    },
+    {
+      "id": "M045",
+      "name": "Butter Chicken",
+      "description": "Tandoori chicken simmered in a rich tomato-butter gravy",
+      "image_url": null,
+      "price_paise": 36000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M046",
+      "name": "Hot Chocolate",
+      "description": "Rich steamed cocoa with milk",
+      "image_url": null,
+      "price_paise": 9000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": null
+    },
+    {
+      "id": "M047",
+      "name": "Egg Curry",
+      "description": "Boiled eggs in a spiced onion-tomato gravy",
+      "image_url": null,
+      "price_paise": 33000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M048",
+      "name": "Chicken Lollipop",
+      "description": "Frenched chicken wings, deep fried and tossed in spicy sauce",
+      "image_url": null,
+      "price_paise": 32000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M049",
+      "name": "Alfredo Pasta",
+      "description": "Pasta tossed in a creamy parmesan white sauce",
+      "image_url": null,
+      "price_paise": 38000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M050",
+      "name": "Chicken Clear Soup",
+      "description": "Light chicken broth with herbs",
+      "image_url": null,
+      "price_paise": 17000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M051",
+      "name": "Crispy Corn",
+      "description": "Golden fried corn tossed in spicy seasoning",
+      "image_url": null,
+      "price_paise": 27000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M052",
+      "name": "Cheese Corn Balls",
+      "description": "Deep-fried corn and cheese croquettes",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M053",
+      "name": "Vegetable Kolhapuri",
+      "description": "Mixed vegetables in a fiery Kolhapuri masala",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M054",
+      "name": "Shahi Paneer",
+      "description": "Cottage cheese in a creamy cashew-based gravy",
+      "image_url": null,
+      "price_paise": 23000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M055",
+      "name": "Hot & Sour Soup",
+      "description": "Spicy tangy broth with vegetables and vinegar",
+      "image_url": null,
+      "price_paise": 20000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M056",
+      "name": "Palak Paneer",
+      "description": "Cottage cheese cubes simmered in a spiced spinach puree",
+      "image_url": null,
+      "price_paise": 28000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M057",
+      "name": "Paneer Tikka",
+      "description": "Char-grilled cottage cheese marinated in yogurt and spices",
+      "image_url": null,
+      "price_paise": 28000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M058",
+      "name": "Manchow Soup",
+      "description": "Deep-fried noodles topped over a peppery vegetable broth",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M059",
+      "name": "Chicken Chettinad",
+      "description": "South Indian chicken curry with roasted spices",
+      "image_url": null,
+      "price_paise": 33000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M060",
+      "name": "Dal Makhani",
+      "description": "Slow-cooked black lentils in butter and cream",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 4
+    },
+    {
+      "id": "M061",
+      "name": "Malai Kofta",
+      "description": "Fried cottage cheese and potato dumplings in creamy gravy",
+      "image_url": null,
+      "price_paise": 23000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M062",
+      "name": "Chicken Tikka Masala",
+      "description": "Grilled chicken chunks in a creamy spiced tomato gravy",
+      "image_url": null,
+      "price_paise": 36000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M063",
+      "name": "Chocolate Brownie with Ice Cream",
+      "description": "Warm fudgy brownie served with vanilla ice cream",
+      "image_url": null,
+      "price_paise": 13000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M064",
+      "name": "Coconut Water",
+      "description": "Fresh tender coconut water served chilled",
+      "image_url": null,
+      "price_paise": 14000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M065",
+      "name": "Prawn Malai Curry",
+      "description": "Prawns cooked in a coconut milk based curry",
+      "image_url": null,
+      "price_paise": 32000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "shellfish"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M066",
+      "name": "Uttapam",
+      "description": "Thick savory rice pancake topped with onion and tomato",
+      "image_url": null,
+      "price_paise": 11000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M067",
+      "name": "Green Tea",
+      "description": "Light steeped green tea leaves",
+      "image_url": null,
+      "price_paise": 8000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M068",
+      "name": "Chicken Kolhapuri",
+      "description": "Chicken cooked in a fiery Kolhapuri style masala",
+      "image_url": null,
+      "price_paise": 40000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M069",
+      "name": "Tandoori Chicken (Half)",
+      "description": "Classic whole spice marinated chicken, char-grilled",
+      "image_url": null,
+      "price_paise": 41000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M070",
+      "name": "Idli Sambar",
+      "description": "Steamed rice cakes served with lentil stew",
+      "image_url": null,
+      "price_paise": 14000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M071",
+      "name": "Veg Spring Rolls",
+      "description": "Crisp rolls stuffed with julienned vegetables",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M072",
+      "name": "Caesar Salad",
+      "description": "Romaine lettuce, parmesan, croutons, caesar dressing",
+      "image_url": null,
+      "price_paise": 21000,
+      "course": "salad",
+      "category": "salad",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M073",
+      "name": "Mutton Seekh Kebab",
+      "description": "Minced mutton skewers grilled over charcoal",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M074",
+      "name": "Blue Lagoon Mocktail",
+      "description": "Blue curacao syrup mocktail with lemonade",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M075",
+      "name": "Farmhouse Pizza",
+      "description": "Loaded with onion, capsicum, tomato and mushroom",
+      "image_url": null,
+      "price_paise": 36000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M076",
+      "name": "Kulcha",
+      "description": "Soft leavened bread, lightly spiced, tandoor-baked",
+      "image_url": null,
+      "price_paise": 6000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 14
+    },
+    {
+      "id": "M077",
+      "name": "Gulab Jamun",
+      "description": "Deep-fried milk dumplings soaked in rose-cardamom syrup",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M078",
+      "name": "Schezwan Noodles",
+      "description": "Stir-fried noodles in a spicy Schezwan sauce",
+      "image_url": null,
+      "price_paise": 27000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M079",
+      "name": "Medu Vada",
+      "description": "Crispy fried lentil doughnuts served with chutney and sambar",
+      "image_url": null,
+      "price_paise": 10000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M080",
+      "name": "Paneer Tikka Sandwich",
+      "description": "Grilled sandwich stuffed with spiced paneer tikka",
+      "image_url": null,
+      "price_paise": 22000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 7
+    },
+    {
+      "id": "M081",
+      "name": "Mac and Cheese",
+      "description": "Baked macaroni in a rich cheese sauce",
+      "image_url": null,
+      "price_paise": 32000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M082",
+      "name": "Filter Coffee",
+      "description": "South Indian style strong decoction coffee with milk",
+      "image_url": null,
+      "price_paise": 8000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M083",
+      "name": "Jeera Rice",
+      "description": "Basmati rice tempered with cumin seeds",
+      "image_url": null,
+      "price_paise": 35000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M084",
+      "name": "Singapore Noodles",
+      "description": "Thin rice noodles stir-fried with curry powder and vegetables",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 3,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M085",
+      "name": "Chicken Manchurian Gravy",
+      "description": "Chicken balls simmered in a tangy Manchurian sauce",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 3,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M086",
+      "name": "Chicken 65",
+      "description": "Spicy deep-fried chicken bites, South Indian style",
+      "image_url": null,
+      "price_paise": 43000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M087",
+      "name": "Prawn Biryani",
+      "description": "Fragrant basmati rice layered and dum-cooked with prawns",
+      "image_url": null,
+      "price_paise": 37000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M088",
+      "name": "Rava Dosa",
+      "description": "Crisp semolina crepe with a lacy texture",
+      "image_url": null,
+      "price_paise": 10000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M089",
+      "name": "Mango Lassi",
+      "description": "Chilled yogurt drink blended with mango pulp",
+      "image_url": null,
+      "price_paise": 16000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M090",
+      "name": "Paneer Malai Tikka",
+      "description": "Creamy cashew-marinated cottage cheese, char-grilled",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M091",
+      "name": "Chicken Saag",
+      "description": "Chicken cooked with pureed spinach and mild spices",
+      "image_url": null,
+      "price_paise": 40000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M092",
+      "name": "Missi Roti",
+      "description": "Gram flour flatbread spiced with ajwain",
+      "image_url": null,
+      "price_paise": 7000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M093",
+      "name": "Chicken Biryani",
+      "description": "Fragrant basmati rice layered and dum-cooked with chicken",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M094",
+      "name": "Mutton Biryani",
+      "description": "Fragrant basmati rice layered and dum-cooked with mutton",
+      "image_url": null,
+      "price_paise": 37000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M095",
+      "name": "Fish Tikka",
+      "description": "Chunks of fish marinated in tandoori spice, grilled",
+      "image_url": null,
+      "price_paise": 28000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M096",
+      "name": "Strawberry Milkshake",
+      "description": "Thick milkshake blended with fresh strawberries",
+      "image_url": null,
+      "price_paise": 16000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M097",
+      "name": "Kachumber Salad",
+      "description": "Diced cucumber, onion, tomato with lemon and chaat masala",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "salad",
+      "category": "salad",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M098",
+      "name": "Cold Coffee",
+      "description": "Blended chilled coffee with milk and ice cream",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M099",
+      "name": "Veg Seekh Kebab",
+      "description": "Minced mixed vegetables grilled on skewers",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M100",
+      "name": "Kadai Chicken",
+      "description": "Chicken cooked with peppers in a spiced masala",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M101",
+      "name": "Baingan Bharta",
+      "description": "Smoky mashed roasted eggplant cooked with spices",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M102",
+      "name": "Chilli Garlic Fried Rice",
+      "description": "Fried rice tossed in a fiery chilli-garlic sauce",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M103",
+      "name": "Cream of Mushroom Soup",
+      "description": "Button mushrooms simmered in a velvety cream base",
+      "image_url": null,
+      "price_paise": 20000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M104",
+      "name": "Prawn Koliwada",
+      "description": "Crispy fried prawns in a spiced batter",
+      "image_url": null,
+      "price_paise": 43000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "shellfish"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 13
+    },
+    {
+      "id": "M105",
+      "name": "Fish Moilee",
+      "description": "Kerala-style fish curry in coconut milk",
+      "image_url": null,
+      "price_paise": 40000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M106",
+      "name": "Lachha Paratha",
+      "description": "Multi-layered crisp whole wheat flatbread",
+      "image_url": null,
+      "price_paise": 7000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M107",
+      "name": "Cheese Naan",
+      "description": "Naan stuffed with melted cheese",
+      "image_url": null,
+      "price_paise": 9000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M108",
+      "name": "Thai Glass Noodle Salad",
+      "description": "Vermicelli noodles with peanuts, lime and chili",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "salad",
+      "category": "salad",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "savory_pungent"
+      ],
+      "allergens": [
+        "peanut"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M109",
+      "name": "Stuffed Kashmiri Naan",
+      "description": "Naan stuffed with dried fruits and nuts",
+      "image_url": null,
+      "price_paise": 8000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M110",
+      "name": "Sprouts & Pomegranate Salad",
+      "description": "Mixed sprouts tossed with pomegranate and lemon",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "salad",
+      "category": "salad",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M111",
+      "name": "Watermelon Feta Salad",
+      "description": "Chilled watermelon cubes with feta and mint",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "salad",
+      "category": "salad",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M112",
+      "name": "Club Sandwich",
+      "description": "Triple-layered sandwich with chicken, egg and vegetables",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M113",
+      "name": "Mango Sorbet",
+      "description": "Dairy-free churned mango ice",
+      "image_url": null,
+      "price_paise": 12000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M114",
+      "name": "Tandoori Aloo",
+      "description": "Baby potatoes marinated in tandoori spice, char-grilled",
+      "image_url": null,
+      "price_paise": 29000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M115",
+      "name": "Paneer 65",
+      "description": "Spicy deep-fried cottage cheese cubes, South Indian style",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M116",
+      "name": "Tiramisu",
+      "description": "Layered coffee-soaked dessert with mascarpone cream",
+      "image_url": null,
+      "price_paise": 23000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M117",
+      "name": "Garlic Naan",
+      "description": "Naan topped with chopped garlic and coriander",
+      "image_url": null,
+      "price_paise": 8000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M118",
+      "name": "Kadai Paneer",
+      "description": "Cottage cheese and peppers in a spiced tomato masala",
+      "image_url": null,
+      "price_paise": 23000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M119",
+      "name": "Veg Fried Rice",
+      "description": "Wok-tossed rice with mixed vegetables and soy sauce",
+      "image_url": null,
+      "price_paise": 27000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 3,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M120",
+      "name": "Gobi Manchurian",
+      "description": "Crispy cauliflower tossed in tangy Manchurian sauce",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M121",
+      "name": "Kulfi Falooda",
+      "description": "Traditional Indian ice cream with vermicelli and rose syrup",
+      "image_url": null,
+      "price_paise": 14000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M122",
+      "name": "Masala Dosa",
+      "description": "Crisp rice crepe stuffed with spiced potato filling",
+      "image_url": null,
+      "price_paise": 10000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M123",
+      "name": "Tomato Basil Soup",
+      "description": "Slow-simmered tomatoes with fresh basil and cream",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M124",
+      "name": "Pesto Pasta",
+      "description": "Pasta tossed in a fresh basil and pine nut pesto",
+      "image_url": null,
+      "price_paise": 41000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M125",
+      "name": "Pongal",
+      "description": "Comforting rice and lentil porridge tempered with pepper and cumin",
+      "image_url": null,
+      "price_paise": 14000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M126",
+      "name": "Oreo Milkshake",
+      "description": "Thick milkshake blended with Oreo cookies",
+      "image_url": null,
+      "price_paise": 11000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M127",
+      "name": "Mutton Korma",
+      "description": "Tender mutton in a rich nutty korma gravy",
+      "image_url": null,
+      "price_paise": 32000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M128",
+      "name": "Chicken Burger",
+      "description": "Grilled chicken patty with cheese and lettuce",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": null
+    },
+    {
+      "id": "M129",
+      "name": "Dal Tadka",
+      "description": "Yellow lentils tempered with cumin and garlic",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M130",
+      "name": "Chicken Tikka Pizza",
+      "description": "Pizza topped with spiced chicken tikka chunks",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M131",
+      "name": "Paneer Butter Masala",
+      "description": "Cottage cheese in a rich tomato-butter gravy",
+      "image_url": null,
+      "price_paise": 26000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M132",
+      "name": "Iced Tea",
+      "description": "Chilled brewed tea with lemon",
+      "image_url": null,
+      "price_paise": 18000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M133",
+      "name": "Shahi Tukda",
+      "description": "Fried bread soaked in sweetened milk, topped with nuts",
+      "image_url": null,
+      "price_paise": 12000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M134",
+      "name": "Aloo Gobi",
+      "description": "Potatoes and cauliflower sauteed with turmeric and cumin",
+      "image_url": null,
+      "price_paise": 26000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 1
+    },
+    {
+      "id": "M135",
+      "name": "Chana Masala",
+      "description": "Chickpeas simmered in a tangy onion-tomato gravy",
+      "image_url": null,
+      "price_paise": 23000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M136",
+      "name": "Aloo Tikki Chaat",
+      "description": "Spiced potato patties topped with chutneys and yogurt",
+      "image_url": null,
+      "price_paise": 27000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M137",
+      "name": "Rasam",
+      "description": "Tangy South Indian tamarind and pepper broth",
+      "image_url": null,
+      "price_paise": 17000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M138",
+      "name": "Greek Salad",
+      "description": "Cucumber, feta, olives, tomato with olive oil dressing",
+      "image_url": null,
+      "price_paise": 27000,
+      "course": "salad",
+      "category": "salad",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M139",
+      "name": "Peri Peri Paneer Pizza",
+      "description": "Pizza topped with spicy peri peri cottage cheese",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M140",
+      "name": "Mushroom Chilli",
+      "description": "Button mushrooms wok-tossed in chilli garlic sauce",
+      "image_url": null,
+      "price_paise": 30000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 10
+    },
+    {
+      "id": "M141",
+      "name": "Watermelon Juice",
+      "description": "Freshly extracted chilled watermelon juice",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M142",
+      "name": "Baby Corn Manchurian",
+      "description": "Crispy baby corn in a sweet-spicy sauce",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M143",
+      "name": "Chicken Malai Tikka",
+      "description": "Creamy cashew-marinated chicken, char-grilled",
+      "image_url": null,
+      "price_paise": 29000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M144",
+      "name": "Mix Veg Curry",
+      "description": "Seasonal vegetables in a light onion-tomato gravy",
+      "image_url": null,
+      "price_paise": 27000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 1,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M145",
+      "name": "Methi Malai Matar",
+      "description": "Fenugreek leaves and green peas in creamy gravy",
+      "image_url": null,
+      "price_paise": 23000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M146",
+      "name": "Mutton Rogan Josh",
+      "description": "Kashmiri-style slow-cooked mutton curry",
+      "image_url": null,
+      "price_paise": 44000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M147",
+      "name": "Lemon Coriander Soup",
+      "description": "Light broth with lemon zest and fresh coriander",
+      "image_url": null,
+      "price_paise": 20000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "fruity",
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 9
+    },
+    {
+      "id": "M148",
+      "name": "Chicken Tikka",
+      "description": "Boneless chicken marinated in yogurt and spices, tandoor-grilled",
+      "image_url": null,
+      "price_paise": 38000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M149",
+      "name": "Virgin Mojito (Half)",
+      "description": "Refreshing mint and lime mocktail with soda",
+      "image_url": null,
+      "price_paise": 11000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M150",
+      "name": "Chilli Paneer Dry (Half)",
+      "description": "Cottage cheese tossed in Indo-Chinese chilli garlic sauce",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M151",
+      "name": "Egg Biryani (Half)",
+      "description": "Basmati rice dum-cooked with boiled eggs and spices",
+      "image_url": null,
+      "price_paise": 37000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M152",
+      "name": "Jalebi (Half)",
+      "description": "Crispy spiral fritters soaked in sugar syrup",
+      "image_url": null,
+      "price_paise": 22000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M153",
+      "name": "Black Forest Pastry (Half)",
+      "description": "Chocolate sponge layered with cherries and cream",
+      "image_url": null,
+      "price_paise": 21000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M154",
+      "name": "Phirni (Half)",
+      "description": "Ground rice pudding flavored with cardamom and saffron",
+      "image_url": null,
+      "price_paise": 20000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M155",
+      "name": "Masala Chai (Half)",
+      "description": "Spiced Indian tea with milk",
+      "image_url": null,
+      "price_paise": 6000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M156",
+      "name": "Chilli Chicken Dry (Half)",
+      "description": "Wok-tossed chicken in Indo-Chinese chilli garlic sauce",
+      "image_url": null,
+      "price_paise": 44000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M157",
+      "name": "Black Coffee (Half)",
+      "description": "Freshly brewed black coffee",
+      "image_url": null,
+      "price_paise": 7000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M158",
+      "name": "Gajar Ka Halwa (Half)",
+      "description": "Slow-cooked grated carrot pudding with ghee and nuts",
+      "image_url": null,
+      "price_paise": 12000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M159",
+      "name": "Chicken Fried Rice (Half)",
+      "description": "Wok-tossed rice with chicken and soy sauce",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 3,
+        "salty": 3,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M160",
+      "name": "Veg Manchurian Gravy (Half)",
+      "description": "Vegetable balls simmered in a tangy Manchurian sauce",
+      "image_url": null,
+      "price_paise": 29000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M161",
+      "name": "Vegetable Pulao (Half)",
+      "description": "Basmati rice cooked with mixed vegetables and whole spices",
+      "image_url": null,
+      "price_paise": 37000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M162",
+      "name": "Prawn Ghee Roast (Half)",
+      "description": "Mangalorean-style prawns in a fiery ghee-spice roast",
+      "image_url": null,
+      "price_paise": 40000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy",
+        "shellfish"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M163",
+      "name": "Kolkata Style Chicken Cutlet (Half)",
+      "description": "Pan-fried spiced chicken cutlets",
+      "image_url": null,
+      "price_paise": 35000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M164",
+      "name": "Fish Amritsari (Half)",
+      "description": "Batter-fried fish fillets with carom seed and spices",
+      "image_url": null,
+      "price_paise": 42000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M165",
+      "name": "Veg Biryani (Half)",
+      "description": "Fragrant basmati rice dum-cooked with mixed vegetables",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": null
+    },
+    {
+      "id": "M166",
+      "name": "Butter Naan (Half)",
+      "description": "Leavened flatbread brushed with butter, tandoor-baked",
+      "image_url": null,
+      "price_paise": 8000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 6
+    },
+    {
+      "id": "M167",
+      "name": "Margherita Pizza (Half)",
+      "description": "Classic pizza with tomato, mozzarella and basil",
+      "image_url": null,
+      "price_paise": 34000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M168",
+      "name": "Curd Rice (Half)",
+      "description": "South Indian style rice tempered and mixed with yogurt",
+      "image_url": null,
+      "price_paise": 40000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 3
+    },
+    {
+      "id": "M169",
+      "name": "Lemon Rice (Half)",
+      "description": "Tangy rice tempered with mustard seeds and curry leaves",
+      "image_url": null,
+      "price_paise": 11000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "fruity",
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M170",
+      "name": "Navratan Korma (Half)",
+      "description": "Nine vegetables and fruits in a mild creamy gravy",
+      "image_url": null,
+      "price_paise": 29000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M171",
+      "name": "Buttermilk (Chaas) (Half)",
+      "description": "Spiced churned yogurt drink with cumin and mint",
+      "image_url": null,
+      "price_paise": 16000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M172",
+      "name": "Sweet Corn Veg Soup (Half)",
+      "description": "Classic Indo-Chinese style corn and vegetable soup",
+      "image_url": null,
+      "price_paise": 13000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M173",
+      "name": "Bombay Veg Sandwich (Half)",
+      "description": "Street-style sandwich with potato, chutney and chaat masala",
+      "image_url": null,
+      "price_paise": 21000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M174",
+      "name": "Grilled Cheese Sandwich (Half)",
+      "description": "Toasted sandwich oozing with melted cheese",
+      "image_url": null,
+      "price_paise": 19000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M175",
+      "name": "Cheesecake (Half)",
+      "description": "Baked creamy cheesecake with a biscuit base",
+      "image_url": null,
+      "price_paise": 16000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 2,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M176",
+      "name": "Rasmalai (Half)",
+      "description": "Soft cottage cheese discs soaked in saffron milk",
+      "image_url": null,
+      "price_paise": 13000,
+      "course": "dessert",
+      "category": "dessert",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 3,
+        "sour": 1,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M177",
+      "name": "Mutton Handi (Half)",
+      "description": "Slow-cooked mutton curry served in a clay handi",
+      "image_url": null,
+      "price_paise": 41000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M178",
+      "name": "Fresh Lime Soda (Half)",
+      "description": "Chilled soda with fresh lime, sweet or salted",
+      "image_url": null,
+      "price_paise": 13000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M179",
+      "name": "Penne Arrabbiata (Half)",
+      "description": "Penne pasta in a spicy tomato and chilli sauce",
+      "image_url": null,
+      "price_paise": 29000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M180",
+      "name": "Jaljeera (Half)",
+      "description": "Tangy spiced cumin and mint cooler",
+      "image_url": null,
+      "price_paise": 15000,
+      "course": "beverage",
+      "category": "beverage_cold",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "fruity"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M181",
+      "name": "Classic Veg Burger (Half)",
+      "description": "Crispy vegetable patty with lettuce and mayo",
+      "image_url": null,
+      "price_paise": 22000,
+      "course": "main",
+      "category": "burger_sandwich",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M182",
+      "name": "Chicken Manchurian Dry (Half)",
+      "description": "Wok-tossed chicken in tangy Manchurian sauce",
+      "image_url": null,
+      "price_paise": 38000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M183",
+      "name": "Rajma Masala (Half)",
+      "description": "Red kidney beans simmered in a thick tomato gravy",
+      "image_url": null,
+      "price_paise": 24000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M184",
+      "name": "Hakka Noodles (Half)",
+      "description": "Classic Indo-Chinese stir-fried noodles with vegetables",
+      "image_url": null,
+      "price_paise": 32000,
+      "course": "main",
+      "category": "indo_chinese_main",
+      "dietary": [
+        "veg",
+        "vegan"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 3,
+        "salty": 1,
+        "bitter": 1,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M185",
+      "name": "Plain Dosa (Half)",
+      "description": "Crisp thin rice and lentil crepe",
+      "image_url": null,
+      "price_paise": 14000,
+      "course": "main",
+      "category": "south_indian",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M186",
+      "name": "Hyderabadi Dum Biryani (Half)",
+      "description": "Slow dum-cooked biryani in the Hyderabadi tradition",
+      "image_url": null,
+      "price_paise": 31000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "floral_herbal",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M187",
+      "name": "Hara Bhara Kebab (Half)",
+      "description": "Spinach and green pea patties, shallow fried",
+      "image_url": null,
+      "price_paise": 28000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M188",
+      "name": "Goan Fish Curry (Half)",
+      "description": "Fish simmered in a coconut and tamarind gravy",
+      "image_url": null,
+      "price_paise": 36000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M189",
+      "name": "Jain Vegetable Biryani (Half)",
+      "description": "Fragrant rice with vegetables, no onion or garlic",
+      "image_url": null,
+      "price_paise": 29000,
+      "course": "main",
+      "category": "rice_biryani",
+      "dietary": [
+        "gluten_free",
+        "jain",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "floral_herbal"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M190",
+      "name": "Paneer Lababdar (Half)",
+      "description": "Cottage cheese in a velvety tomato-onion gravy",
+      "image_url": null,
+      "price_paise": 25000,
+      "course": "main",
+      "category": "main_veg_curry",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 1,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M191",
+      "name": "Chicken Curry (Half)",
+      "description": "Home-style chicken curry in onion-tomato gravy",
+      "image_url": null,
+      "price_paise": 38000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M192",
+      "name": "Tandoori Roti (Half)",
+      "description": "Whole wheat bread baked in a clay oven",
+      "image_url": null,
+      "price_paise": 7000,
+      "course": "bread",
+      "category": "tandoor_bread",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M193",
+      "name": "Butter Chicken (Half)",
+      "description": "Tandoori chicken simmered in a rich tomato-butter gravy",
+      "image_url": null,
+      "price_paise": 43000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 0,
+        "salty": 2,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": true,
+      "rank_this_week": 8
+    },
+    {
+      "id": "M194",
+      "name": "Hot Chocolate (Half)",
+      "description": "Rich steamed cocoa with milk",
+      "image_url": null,
+      "price_paise": 6000,
+      "course": "beverage",
+      "category": "beverage_hot",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 0,
+        "salty": 0,
+        "bitter": 1,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm",
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M195",
+      "name": "Egg Curry (Half)",
+      "description": "Boiled eggs in a spiced onion-tomato gravy",
+      "image_url": null,
+      "price_paise": 42000,
+      "course": "main",
+      "category": "main_nonveg_curry",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "sweet_creamy"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M196",
+      "name": "Chicken Lollipop (Half)",
+      "description": "Frenched chicken wings, deep fried and tossed in spicy sauce",
+      "image_url": null,
+      "price_paise": 39000,
+      "course": "starter",
+      "category": "starter_nonveg",
+      "dietary": [
+        "gluten_free",
+        "non_veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 1,
+        "bitter": 0,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M197",
+      "name": "Alfredo Pasta (Half)",
+      "description": "Pasta tossed in a creamy parmesan white sauce",
+      "image_url": null,
+      "price_paise": 28000,
+      "course": "main",
+      "category": "pizza_pasta",
+      "dietary": [
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 1,
+        "sour": 2,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 3,
+        "spicy": 0
+      },
+      "flavor_notes": [
+        "sweet_creamy"
+      ],
+      "allergens": [
+        "dairy",
+        "gluten"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M198",
+      "name": "Chicken Clear Soup (Half)",
+      "description": "Light chicken broth with herbs",
+      "image_url": null,
+      "price_paise": 21000,
+      "course": "soup",
+      "category": "soup",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 2,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M199",
+      "name": "Crispy Corn (Half)",
+      "description": "Golden fried corn tossed in spicy seasoning",
+      "image_url": null,
+      "price_paise": 22000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 2,
+        "salty": 2,
+        "bitter": 1,
+        "umami": 1,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    },
+    {
+      "id": "M200",
+      "name": "Cheese Corn Balls (Half)",
+      "description": "Deep-fried corn and cheese croquettes",
+      "image_url": null,
+      "price_paise": 22000,
+      "course": "starter",
+      "category": "starter_veg",
+      "dietary": [
+        "gluten_free",
+        "veg"
+      ],
+      "basic_tastes": {
+        "sweet": 0,
+        "sour": 1,
+        "salty": 3,
+        "bitter": 0,
+        "umami": 0,
+        "spicy": 2
+      },
+      "flavor_notes": [
+        "savory_pungent",
+        "spicy_warm"
+      ],
+      "allergens": [
+        "dairy"
+      ],
+      "tags_complete": true,
+      "is_bestseller": false,
+      "rank_this_week": null
+    }
+  ],
+  "image_convention": "Each item carries image_url. null means no image yet and the client renders a placeholder. The backend fills this at deployment with either an absolute CDN URL or a path relative to the web root, e.g. \"/images/M001.jpg\". Files dropped into web/images/ are served at /images/."
+}

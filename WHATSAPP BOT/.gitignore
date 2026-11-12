@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+*.log
+
+# Local-only simulator (mock Graph API + UI). Not part of the service.
+demo/
+
+# Demo tenant API key, minted by demo/seed.ts
+demo/.key

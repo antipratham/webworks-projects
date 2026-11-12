@@ -1,0 +1,21 @@
+{
+  "name": "menu-ai-concierge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Three-stage grounded AI menu concierge on Qwen3-30B-A3B: intent parsing, deterministic filtering, grounded generation.",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test": "node tests/run_tests.ts && node tests/wire_tests.ts && node tests/dataset_tests.ts",
+    "eval": "node eval_scorer.ts",
+    "mock": "node tools/mock_llm_server.ts",
+    "web": "node serve.ts",
+    "try": "node try.ts",
+    "demo": "node demo.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.10.0"
+  }
+}

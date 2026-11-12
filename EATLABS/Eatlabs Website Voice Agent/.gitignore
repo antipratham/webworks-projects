@@ -1,0 +1,7 @@
+# Secrets. The Gemini key lives in .env and must never be committed - a key in git
+# history is leaked even after it is deleted, because the history keeps it.
+.env
+.env.local
+
+# generated: dense vectors are a cache of kb.jsonl, rebuilt by tools/embed_kb.ts
+kb.vectors.jsonl

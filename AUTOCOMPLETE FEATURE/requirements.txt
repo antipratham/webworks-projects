@@ -1,0 +1,14 @@
+# --- Required: backend API + keyword search (instant, zero-ML) ---
+fastapi
+uvicorn[standard]
+
+# --- Optional: semantic search layer (backend/embedding_index.py) ---
+# The app runs fine without these — it just skips semantic search and
+# uses keyword-only suggestions. Install these to enable hybrid search.
+sentence-transformers
+faiss-cpu
+numpy
+torch
+
+# --- Optional: only needed if you run scripts/finetune_embedder.py ---
+# (already covered by sentence-transformers + torch above)
